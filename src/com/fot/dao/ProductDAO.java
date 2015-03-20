@@ -3,12 +3,11 @@ package com.fot.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fot.model.Model;
 import com.fot.model.Product;
 
-public class ProductDAO {
+public final class ProductDAO {
 
-	public List<Product> getAll() {
+	public static List<Product> getAll() {
 		List<Product> products = new ArrayList<Product>();
 		Product pro1 = new Product(
 				"PR1",
@@ -57,7 +56,7 @@ public class ProductDAO {
 		return products;
 	}
 
-	public Product getProductByCode(String id) {
+	public static Product getProductByCode(String id) {
 		List<Product> products = getAll();
 		for(Product product : products) {
 			if(product.getProductCode().equals(id)) {
@@ -67,7 +66,7 @@ public class ProductDAO {
 		return null;
 	}
 	
-	public List<Product> getProductByCategory(String category) {
+	public static List<Product> getProductByCategory(String category) {
 		List<Product> products = getAll();
 		List<Product> categorisedProducts = new ArrayList<Product>();
 		for(Product product : products) {
