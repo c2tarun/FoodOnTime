@@ -8,35 +8,15 @@
 <link rel="shortcut icon" href="favicon.ico" />
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/header.js"></script>
+
 </head>
 
-<body>
-<div id="Header">
-<ul id="navigation">
-<li class="active"><a href="#">Home</a></li>
-<li><a href="menu.jsp">Menu</a></li>
-<li><a href="#">Contact</a></li>
-<li><a href="#">LogIn</a></li>
+<body onload="changeActiveMenu('index');">
 
-</ul>
-<div class="image"><a href="#"><img src="images/cart.png" width="30" height="30"/><span><b>0 items</b></span></a></div>
-</div>
-<div id="header2">
-<div class="logo">
-Food On Time
-</div>
-<div class="banner"><span>Have Food At Your Time!!!</span></div>
-</div>
+<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="sideBars.jsp"></jsp:include>
 
-<div id="Menu">
-	<img src="images/food1.jpg" style="width: 210px; height: 200px;"/>
-    	<img src="images/food1.jpg" style="width: 210px; height: 200px;"/>
-
-</div>
-<div id="Menu_Right">
-	<img src="images/food1.jpg" style="width: 210px; height: 200px;"/>
-    <img src="images/food1.jpg" style="width: 210px; height: 200px;"/>
-</div>
 <div id="Content">
   <h2> Welcome To Food On Time!!!</h2>
 	<h1>What about this website???	</h1>
@@ -51,15 +31,8 @@ Food On Time
 	<h1>&nbsp;</h1>
 </div>
 <div class="spacer">&nbsp;</div>
-<div class="footer"> 
-  <p>&copy; Your Copyright Information<br />
-Put all your links here.. write down what ever you like<br />
-<!-- Removing this link back to Ramblingsoul.com will be violation of the Creative Commons Attribution 3.0 Unported License, under which this template is released for download -->
-<a href="http://ramblingsoul.com">CSS Layout</a> by RamblingSoul.com
-<!-- Copyright - Ramblingsoul.com -->
- | <a href="http://validator.w3.org/check?uri=referer">XHTML 1.0</a> | CSS</p>
 
-</div>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 
 </html>
