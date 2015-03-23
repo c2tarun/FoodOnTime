@@ -7,19 +7,20 @@ public class Product {
 	private String category;
 	private String description;
 	private String imageUrl;
-
+	int quantity;
 	public Product() {
 
 	}
 
 	public Product(String productCode, String productName, String category,
-			String description, String imageUrl) {
+			String description, String imageUrl,int quantity) {
 		super();
 		this.productCode = productCode;
 		this.productName = productName;
 		this.category = category;
 		this.description = description;
 		this.imageUrl = imageUrl;
+		this.quantity=quantity;
 	}
 
 	public String getProductCode() {
@@ -60,6 +61,28 @@ public class Product {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+	 
+	public int getQuantity() {
+	return quantity;
+	}
+	 
+	public void setQuantity(int quantity) {
+	this.quantity = quantity;
+	}
+	 
+	public void incrementQuantity() {
+	quantity++;
+	}
+	 
+	public void decrementQuantity() {
+	quantity--;
+	}
+	 
+	public double getTotal() {
+	double amount = 0;
+	//amount = (this.getQuantity() * this.getPrice().doubleValue());
+	return amount;
 	}
 
 }
