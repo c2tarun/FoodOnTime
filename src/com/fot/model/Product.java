@@ -7,33 +7,23 @@ public class Product {
 	private String category;
 	private String description;
 	private String imageUrl;
-<<<<<<< HEAD
 	private double productCost;
+	private int quantity;
 
-=======
-	int quantity;
->>>>>>> 88935ef39761cffb600d4532a75b6fc30511d575
 	public Product() {
 
 	}
 
 	public Product(String productCode, String productName, String category,
-<<<<<<< HEAD
-			String description, String imageUrl, double productCost) {
-=======
-			String description, String imageUrl,int quantity) {
->>>>>>> 88935ef39761cffb600d4532a75b6fc30511d575
+			String description, String imageUrl, double productCost, int quantity) {
 		super();
 		this.productCode = productCode;
 		this.productName = productName;
 		this.category = category;
 		this.description = description;
 		this.imageUrl = imageUrl;
-<<<<<<< HEAD
 		this.productCost = productCost;
-=======
 		this.quantity=quantity;
->>>>>>> 88935ef39761cffb600d4532a75b6fc30511d575
 	}
 
 	public String getProductCode() {
@@ -75,7 +65,6 @@ public class Product {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-<<<<<<< HEAD
 	
 	public double getProductCost() {
 		return productCost;
@@ -83,7 +72,7 @@ public class Product {
 
 	public void setProductCost(double productCost) {
 		this.productCost = productCost;
-=======
+	}
 	 
 	public int getQuantity() {
 	return quantity;
@@ -105,7 +94,7 @@ public class Product {
 	double amount = 0;
 	//amount = (this.getQuantity() * this.getPrice().doubleValue());
 	return amount;
->>>>>>> 88935ef39761cffb600d4532a75b6fc30511d575
+
 	}
 
 }
