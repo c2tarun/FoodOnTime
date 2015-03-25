@@ -2,6 +2,7 @@ package com.fot.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +44,11 @@ public class ProductsController extends HttpServlet {
 
 		// if no parameter is passed return all the products
 		request.setAttribute("productList", ProductDAO.getAll());
-		// Write code to dispatch to correct JSP
+		
+		//Dispatching to menu.jsp
+		RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
+		dispatcher.forward(request, response);
+		
 		return;
 	}
 

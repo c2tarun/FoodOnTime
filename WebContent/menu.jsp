@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.fot.dao.ProductDAO"%>
+	
+
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 
 <head>
@@ -24,98 +29,24 @@
 					<option>Beverages</option></select>
 			</h1>
 
-			<div class="menu-item">
-				<div class="desc">
-					<b>Item - 1</b>
+			
+			
+			
+			
+			<c:forEach var = "products" items = "${requestScope.productList}">
+				<div class="menu-item">
+					<div class="top_desc">
+						<b>${products.productName }</b>
+					</div>
+					<a href="#" id="logo"><img src="${products.imageUrl }" width="110" height="100" /></a>
+					<div class="bottom_desc">
+					<p style="display:inline-block; font-size: 18px;"><b>Price : $ ${products.productCost }</b></p><a href="#" style="float: right;"><img src="images/cart.png" width="20" height="20"
+						 /></a>
+					</div>
 				</div>
-				<a href="#"><img src="images/food1.jpg" width="110" height="70" /></a>
-				<div class="desc">
-					<b>Price : $6</b><img src="images/cart.png" width="20" height="20"
-						style="display: inline;" />
-				</div>
-			</div>
-
-			<div class="menu-item">
-				<div class="desc">
-					<b>Item - 1</b>
-				</div>
-				<a href="#"><img src="images/food1.jpg" width="110" height="70" /></a>
-				<div class="desc">
-					<b>Price : $6</b><img src="images/cart.png" width="20" height="20"
-						style="display: inline;" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div class="desc">
-					<b>Item - 1</b>
-				</div>
-				<a href="#"><img src="images/food1.jpg" width="110" height="70" /></a>
-				<div class="desc">
-					<b>Price : $6</b><img src="images/cart.png" width="20" height="20"
-						style="display: inline;" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div class="desc">
-					<b>Item - 1</b>
-				</div>
-				<a href="#"><img src="images/food1.jpg" width="110" height="70" /></a>
-				<div class="desc">
-					<b>Price : $6</b><img src="images/cart.png" width="20" height="20"
-						style="display: inline;" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div class="desc">
-					<b>Item - 1</b>
-				</div>
-				<a href="#"><img src="images/food1.jpg" width="110" height="70" /></a>
-				<div class="desc">
-					<b>Price : $6</b><img src="images/cart.png" width="20" height="20"
-						style="display: inline;" />
-				</div>
-			</div>
-
-			<div class="menu-item">
-				<div class="desc">
-					<b>Item - 1</b>
-				</div>
-				<a href="#"><img src="images/food1.jpg" width="110" height="70" /></a>
-				<div class="desc">
-					<b>Price : $6</b><img src="images/cart.png" width="20" height="20"
-						style="display: inline;" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div class="desc">
-					<b>Item - 1</b>
-				</div>
-				<a href="#"><img src="images/food1.jpg" width="110" height="70" /></a>
-				<div class="desc">
-					<b>Price : $6</b><img src="images/cart.png" width="20" height="20"
-						style="display: inline;" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div class="desc">
-					<b>Item - 1</b>
-				</div>
-				<a href="#"><img src="images/food1.jpg" width="110" height="70" /></a>
-				<div class="desc">
-					<b>Price : $6</b><img src="images/cart.png" width="20" height="20"
-						style="display: inline;" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div class="desc">
-					<b>Item - 1</b>
-				</div>
-				<a href="#"><img src="images/food1.jpg" width="110" height="70" /></a>
-				<div class="desc">
-					<b>Price : $6</b><img src="images/cart.png" width="20" height="20"
-						style="display: inline;" />
-				</div>
-			</div>
+			</c:forEach>
+			
+			
 		</div>
 	</div>
 	<div class="spacer">&nbsp;</div>

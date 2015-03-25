@@ -34,8 +34,9 @@ h1 {
 	margin-top: 10px;
 	border: 1px dashed #C0D490;
 }
-#Content .conten-body{
-	margin: 10px;
+#Content .content-body{
+	margin: 60px;
+	margin-top: 10px;
 }
 .footer {
 	background-image: url(images/footer.png);
@@ -171,6 +172,7 @@ body>#Header2 {height:115px;}
 	padding-right: 10px;
 	padding-bottom: 10px;
 	padding-left: 10px;
+	width: 60%;
 	}
 #Header a {
 	color: #993300;
@@ -186,6 +188,7 @@ body>#Header2 {height:115px;}
 	line-height:25px;
 	width:210px;
 	margin-top: 86px;
+	margin-left: -10px;
 	font-size: 12px;
 	color: #339900;
 	padding-top: 15px;
@@ -506,23 +509,24 @@ div.menu-item{
 	margin: 5px;
     padding: 2px;
     border: 2px solid #6B633F;
-    height: auto;
-    width: auto;
+    height: 180px;
+    width: 200px;
     float: left;
     text-align: center;
 }
-div.menu-item img{
+div#logo{
 	display: inline;
-    margin: 5px;
+    margin-top: 25px;
     border: 1px solid #ffffff;
-}
-div.menu-item a:hover img {
-    border: 1px solid #6B633F;
+    width: 70%;
+    
 }
 
-div.desc {
-  text-align: center;
-  font-weight: normal;
-  width: 120px;
-  margin: 2px;
+
+.top_desc{
+	height: 40px;
+}
+
+.bottom_desc{
+	margin-top: 15px;
 }

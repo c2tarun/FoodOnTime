@@ -11,7 +11,7 @@
 <div id="Header">
 		<ul id="navigation">
 			<li id="index"><a href="index.jsp">Home</a></li>
-			<li id="menu1"><a href="menu.jsp">Menu</a></li>
+			<li id="menu1"><a href="ProductsController">Menu</a></li>
 			<li><a href="#">Contact</a></li>
 			<li><a href="#">LogIn</a></li>
 

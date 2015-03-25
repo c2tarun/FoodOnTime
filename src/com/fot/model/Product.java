@@ -7,19 +7,21 @@ public class Product {
 	private String category;
 	private String description;
 	private String imageUrl;
+	private double productCost;
 
 	public Product() {
 
 	}
 
 	public Product(String productCode, String productName, String category,
-			String description, String imageUrl) {
+			String description, String imageUrl, double productCost) {
 		super();
 		this.productCode = productCode;
 		this.productName = productName;
 		this.category = category;
 		this.description = description;
 		this.imageUrl = imageUrl;
+		this.productCost = productCost;
 	}
 
 	public String getProductCode() {
@@ -60,6 +62,14 @@ public class Product {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+	
+	public double getProductCost() {
+		return productCost;
+	}
+
+	public void setProductCost(double productCost) {
+		this.productCost = productCost;
 	}
 
 }
