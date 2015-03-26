@@ -38,12 +38,16 @@ public class ProductsController extends HttpServlet {
 		if (!Util.isEmpty(productCategory)) {
 			request.setAttribute("productList",
 					ProductDAO.getProductByCategory(productCategory));
-			// Write code to dispatch to correct JSP
+			
+			// Dispatching to menu.jsp
+			RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
+			dispatcher.forward(request, response);
+			
 			return;
 		}
 
 		// if no parameter is passed return all the products
-		request.setAttribute("productList", ProductDAO.getAll());
+		//request.setAttribute("productList", ProductDAO.getAll());
 		
 		//Dispatching to menu.jsp
 		RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="com.fot.dao.ProductDAO"%>
 	
-
+<%@ page import="java.util.ArrayList" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -24,15 +24,19 @@
 	<div id="Content">
 		<h2>Select Your Menu!!!</h2>
 		<div class="content-body">
-			<h1>
-				Filter By <select><option>---</option>
-					<option>Beverages</option></select>
+			<h1 style="display:inline-block">
+				Filter By Category<select style="margin-left: 10px;" name="ProductCategory"><option></option>
+						<c:forEach var = "products" items = "${requestScope.productList}">
+							<option>${products.category }</option>
+						</c:forEach>
+					
+					</select>
 			</h1>
 
+			<a href="ProductsController"><button id="submitCategory" onclick="clearList()">Submit</button></a>
 			
-			
-			
-			
+			<br/>
+			<div id="viewProductList">
 			<c:forEach var = "products" items = "${requestScope.productList}">
 				<div class="menu-item">
 					<div class="top_desc">
@@ -45,7 +49,7 @@
 					</div>
 				</div>
 			</c:forEach>
-			
+			</div>
 			
 		</div>
 	</div>
