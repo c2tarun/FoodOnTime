@@ -36,6 +36,7 @@ public class ShoppingCart {
 						.getProductCode()) {
 					newItem = false;
 					item.incrementQuantity();
+					break;
 				}
 			}
 			if (newItem) {

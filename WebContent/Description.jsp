@@ -35,7 +35,7 @@
 				</p>
 			</h1>
 
-			<a href="#" class="button">Add To Cart</a>
+			<a href="CartController?productCode=<%=request.getParameter("Code")%>" class="button">Add To Cart</a>
 
 		</div>
 	</div>

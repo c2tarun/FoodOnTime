@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fot.dao.ProductDAO;
+import com.fot.model.Product;
 import com.fot.model.ShoppingCart;
+import com.fot.util.Util;
 
 /**
  * Servlet implementation class CartController
@@ -46,16 +49,14 @@ public class CartController extends HttpServlet {
 			cart = new ShoppingCart();
 			session.setAttribute(SHOPPING_CART, cart);
 		}
-		session.setAttribute("CartList", cart.getList());
-
-		session.setAttribute("NumberOfItems",
-				cart.getNumberOfItems());
-
-		session.setAttribute("TotalPrice", cart.getTotalPrice());
-
-		quantity = request.getParameter("quantity");
-
-		cart.clear();
+		
+		String productCode = (String) request.getParameter("productCode");
+		if(!Util.isEmpty(productCode)) {
+			Product productToAdd = ProductDAO.getProductByCode(productCode);
+			cart.addItem(productToAdd);
+		}
+		// This is temporary, fix how values are being displayed in Description.jsp and then direct code to Description.jsp
+		request.getRequestDispatcher("ProductsController").forward(request, response);
 	}
 
 	/**
