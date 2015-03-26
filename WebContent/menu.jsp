@@ -26,9 +26,8 @@
 		<div class="content-body">
 			<h1 style="display:inline-block">
 				Filter By Category<select style="margin-left: 10px;" name="ProductCategory"><option></option>
-						<c:forEach var = "products" items = "${requestScope.productList}">
-							<option>${products.category }</option>
-						</c:forEach>
+					<option>bakery</option>	
+					<option>breakfast</option>
 					
 					</select>
 			</h1>
