@@ -3,7 +3,7 @@ package com.fot.dao.test;
 import org.junit.Assert;
 import org.junit.Test;
 import com.fot.model.Product;
-import com.fot.model.ShoppingCartItems;
+import com.fot.model.ShoppingCart;
 
 public class ShoppingCartItemsTest {
 
@@ -12,45 +12,51 @@ public class ShoppingCartItemsTest {
 			"Blueberry Scone",
 			"bakery",
 			"The light biscuit texture provides the ideal backdrop for a bounty of dried blueberries and lemon zest. Sweet yet tart, our classic Blueberry Scone calls for a balanced coffee, such as House Blend®.",
-			"http://globalassets.starbucks.com/assets/ea8adb19d1894a7e930b218c0112c357.jpg", 5);
+			"http://globalassets.starbucks.com/assets/ea8adb19d1894a7e930b218c0112c357.jpg",2.5);
 
 	@Test
 	public void addItemTest() {
 
-		ShoppingCartItems.addItem(pro1);
-		Assert.assertTrue(ShoppingCartItems.getList().size() > 0);
+		ShoppingCart cart = new ShoppingCart();
+		cart.addItem(pro1);
+		Assert.assertTrue(cart.getList().size() > 0);
 	}
 
 	@Test
 	public void numberOFItemsTest() {
-		ShoppingCartItems.addItem(pro1);
-		Assert.assertTrue(ShoppingCartItems.getNumberOfItems() == 5);
+		ShoppingCart cart = new ShoppingCart();
+		cart.addItem(pro1);
+		Assert.assertTrue(cart.getItem(pro1).getQuantity() == 1);
 	}
 
 	@Test
 	public void getCartListTest() {
-		ShoppingCartItems.addItem(pro1);
-		Assert.assertTrue(ShoppingCartItems.getList().size() > 0);
+		ShoppingCart cart = new ShoppingCart();
+		cart.addItem(pro1);
+		Assert.assertTrue(cart.getList().size() > 0);
 	}
 
 	@Test
 	public void clearCartListTest() {
-		ShoppingCartItems.addItem(pro1);
-		ShoppingCartItems.clear();
-		Assert.assertTrue(ShoppingCartItems.getList().size() == 0);
+		ShoppingCart cart = new ShoppingCart();
+		cart.addItem(pro1);
+		cart.clear();
+		Assert.assertTrue(cart.getList().size() == 0);
 	}
 
 	@Test
 	public void deleterCartItemTest() {
-		ShoppingCartItems.addItem(pro1);
-		ShoppingCartItems.deleteItem(pro1);
-		Assert.assertTrue(ShoppingCartItems.getList().size() == 0);
+		ShoppingCart cart = new ShoppingCart();
+		cart.addItem(pro1);
+		cart.deleteItem(pro1);
+		Assert.assertTrue(cart.getList().size() == 0);
 	}
 
 	@Test
 	public void updateCartQuantityTest() {
-		ShoppingCartItems.addItem(pro1);
-		ShoppingCartItems.update(pro1, 4);
-		Assert.assertTrue(pro1.getQuantity() == 4);
+		ShoppingCart cart = new ShoppingCart();
+		cart.addItem(pro1);
+		cart.update(pro1, 4);
+		Assert.assertTrue(cart.getItem(pro1).getQuantity() == 4);
 	}
 }

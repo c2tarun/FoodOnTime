@@ -13,6 +13,7 @@
 <link rel="shortcut icon" href="favicon.ico" />
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/button.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/header.js"></script>
 </head>
 
@@ -34,8 +35,7 @@
 				</p>
 			</h1>
 
-			<input type="submit" value="Add To Cart" />
-
+			<a href="#" class="button">Add To Cart</a>
 
 		</div>
 	</div>
