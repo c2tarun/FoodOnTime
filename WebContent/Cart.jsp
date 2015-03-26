@@ -41,10 +41,10 @@
 						<tr>
 							<td>${products.productName }</td>
 							<td>${products.quantity }</td>
-							<td>$ ${products.productCost }</td>
-							<td><input type="hidden" name="delete" value="true" /> <input
+							<td>$ ${products.quantity * products.productCost }</td>
+							<td><form action="DeleteController" method="post"><input type="hidden" name="delete" value="true" /> <input
 								type="hidden" name="delPid" value="${products.productCode}" /> <input
-								type="submit" value="Delete" /></td>
+								type="submit" value="Delete" /></form></td>
 						</tr>
 					</c:forEach>
 				</tbody>
