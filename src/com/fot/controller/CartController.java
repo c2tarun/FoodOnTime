@@ -1,9 +1,8 @@
 package com.fot.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -66,6 +65,32 @@ public class CartController extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		HttpSession session = request.getSession(true);
+		ShoppingCart cart = (ShoppingCart) session.getAttribute(SHOPPING_CART);
+		if (cart == null) { // No cart already in session
+			cart = new ShoppingCart();
+			session.setAttribute(SHOPPING_CART, cart);
+		}
+		String pId;
+		pId = request.getParameter("pid");
+		String pcost;
+		pcost = request.getParameter("pcost");
+
+		String productId = pId.substring(0, 3);
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		if (!Util.isEmpty(pId)) {
+			//cart.addItem(ProductDAO.getProductByCode(productId), quantity);
+			cart.update(ProductDAO.getProductByCode(productId), quantity);
+		}
+
+		session.setAttribute("CartList", cart.getList());
+		session.setAttribute("NumberOfItems", cart.getNumberOfItems());
+
+		session.setAttribute("TotalPrice", cart.getTotalPrice());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Cart.jsp");
+		dispatcher.forward(request, response);
+
 	}
 
 }

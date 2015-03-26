@@ -62,7 +62,7 @@ public final class ProductDAO {
 		return products;
 	}
 
-	public static Product getProductByCode(String id) {
+	public static  Product getProductByCode(String id) {
 		List<Product> products = getAll();
 		for(Product product : products) {
 			if(product.getProductCode().equals(id)) {

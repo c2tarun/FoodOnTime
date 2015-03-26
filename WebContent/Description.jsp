@@ -18,7 +18,6 @@
 </head>
 
 <body onload="changeActiveMenu('menu1');">
-
 	<jsp:include page="header.jsp"></jsp:include>
 	<jsp:include page="sideBars.jsp"></jsp:include>
 
@@ -38,11 +37,10 @@
 			<a href="CartController?productCode=<%=request.getParameter("Code")%>" class="button">Add To Cart</a>
 
 		</div>
-	</div>
-	<div class="spacer">&nbsp;</div>
+		<div class="spacer">&nbsp;</div>
 
-	<jsp:include page="footer.jsp"></jsp:include>
-
+		<jsp:include page="footer.jsp"></jsp:include>
+	</form>
 </body>
 
 </html>
