@@ -41,7 +41,7 @@
 					<div class="top_desc">
 						<b>${products.productName }</b>
 					</div>
-					<a href="Description.jsp?Description=${products.description} &Name=${products.productName} &Logo=${products.imageUrl} &Price=${products.productCost} &Type=${products.category}" id="logo"><img src="${products.imageUrl }" width="110" height="100" /></a>
+					<a href="Description.jsp?Description=${products.description} &PID=${products.productCode} &Quantity=${products.quantity} &Name=${products.productName} &Logo=${products.imageUrl} &Price=${products.productCost} &Type=${products.category}" id="logo"><img src="${products.imageUrl }" width="110" height="100" /></a>
 					<div class="bottom_desc">
 					<p style="display:inline-block; font-size: 18px;"><b>Price : $ ${products.productCost }</b></p><a href="#" style="float: right;"><img src="images/cart.png" width="20" height="20"
 						 /></a>

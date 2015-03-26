@@ -15,8 +15,9 @@ public class ShoppingCartItems {
 		total = 0;
 	}
 
-	public static void addItem(Product product) {
-
+	public static void addItem(Product product, int quantity) {
+		int qty = 0;
+		qty = quantity;
 		boolean newItem = true;
 		if (cartItems != null) {
 			for (Product item : cartItems) {
@@ -24,7 +25,8 @@ public class ShoppingCartItems {
 				if (item.getProductCode() == product.getProductCode()) {
 
 					newItem = false;
-					item.incrementQuantity();
+					// item.incrementQuantity();
+					item.setQuantity(qty);
 				}
 			}
 			if (newItem) {
@@ -58,8 +60,8 @@ public class ShoppingCartItems {
 		qty = quantity;
 
 		if (qty >= 0) {
-
 			for (Product cItem : cartItems) {
+
 				if (cItem.getProductCode().equals(product.getProductCode())) {
 					if (qty != 0) {
 						cItem.setQuantity(qty);
@@ -83,7 +85,7 @@ public class ShoppingCartItems {
 		double total = 0;
 
 		for (Product item : cartItems) {
-			// total=item.getQuantity() * item.getPrice().doubleValue();;
+			total = total + (item.getQuantity() * item.getProductCost());
 
 		}
 

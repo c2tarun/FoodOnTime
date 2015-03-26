@@ -23,7 +23,7 @@ public class Product {
 		this.description = description;
 		this.imageUrl = imageUrl;
 		this.productCost = productCost;
-		this.quantity=quantity;
+		quantity=1;
 	}
 
 	public String getProductCode() {

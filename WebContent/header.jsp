@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +10,7 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="Header">
+	<div id="Header">
 		<ul id="navigation">
 			<li id="index"><a href="index.jsp">Home</a></li>
 			<li id="menu1"><a href="ProductsController">Menu</a></li>
@@ -17,7 +19,18 @@
 
 		</ul>
 		<div class="image">
-			<a href="#"><img src="images/cart.png" width="30" height="30" /><span><b>0
+			<a href="Cart.jsp"><img src="images/cart.png" width="30"
+				height="30" /><span><b>
+				<c:choose>
+				<c:when test = "${sessionScope.NumberOfItems > 0}">
+				${sessionScope.NumberOfItems}
+				</c:when>
+				<c:otherwise>
+				0
+				</c:otherwise>
+				</c:choose>
+				
+				
 						items</b></span></a>
 		</div>
 	</div>
