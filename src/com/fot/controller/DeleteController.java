@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fot.dao.ProductDAO;
-import com.fot.model.ShoppingCartItems;
+import com.fot.model.ShoppingCart;
 
 /**
  * Servlet implementation class TestController
@@ -41,9 +41,9 @@ public class DeleteController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
-		ShoppingCartItems cart = (ShoppingCartItems) session.getAttribute("shoppingCart");
+		ShoppingCart cart = (ShoppingCart) session.getAttribute("shoppingCart");
 		if (cart == null) { // No cart already in session
-			cart = new ShoppingCartItems();
+			cart = new ShoppingCart();
 			session.setAttribute("shoppingCart", cart);
 		}
 		

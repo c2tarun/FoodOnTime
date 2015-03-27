@@ -25,17 +25,21 @@
 		<h2>Select Your Menu!!!</h2>
 		<div class="content-body">
 			<h1 style="display:inline-block">
-				Filter By Category<select style="margin-left: 10px;" name="ProductCategory"><option></option>
+			
+				Filter By Category</h1>
+				<form name='test'>
+				<select id= "select_product" style="margin-left: 10px;" name="ProductCategory"><option></option>
 					<option>bakery</option>	
 					<option>breakfast</option>
 					
 					</select>
-			</h1>
-
-			<a href="ProductsController"><button id="submitCategory" onclick="clearList()">Submit</button></a>
 			
+
+			<a href="ProductsController"><button id="submitCategory" onclick="clearList()" value="select">Submit</button></a>
+			</form>
 			<br/>
 			<div id="viewProductList">
+			
 			
 			<c:forEach var = "products" items = "${requestScope.productList}" varStatus="productCount">
 				<div class="menu-item">
@@ -49,8 +53,7 @@
 					</div>
 				</div>
 			</c:forEach>
-			</div>
-			
+			</div>			
 		</div>
 	</div>
 	<div class="spacer">&nbsp;</div>

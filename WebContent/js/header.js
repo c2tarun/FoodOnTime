@@ -4,7 +4,9 @@ function changeActiveMenu(menuName){
 }
 
 function clearList(){
-	document.getElementById("viewProductList").innerHTML="";
+	System.out.println("This is from js " + document.getElementById("select_product").value);
+	
+	//document.getElementById("viewProductList").innerHTML="";
 }
 
 function addToCart(count){
