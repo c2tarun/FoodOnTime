@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,19 +18,14 @@
 
 		</ul>
 		<div class="image">
-			<a href="Cart.jsp"><img src="images/cart.png" width="30"
-				height="30" /><span><b>
-				<c:choose>
-				<c:when test = "${sessionScope.NumberOfItems > 0}">
-				${sessionScope.NumberOfItems}
-				</c:when>
-				<c:otherwise>
-				0
-				</c:otherwise>
-				</c:choose>
-				
-				
-						items</b></span></a>
+			<a href="#"><img src="images/cart.png" width="30" height="30" />
+				<span> <c:if test="${ShoppingCart.numberOfItems ge 0}">
+						<b>${ShoppingCart.numberOfItems} items</b>
+					</c:if>
+					<c:if test="${empty ShoppingCart}">
+						<b>0 items</b>
+					</c:if>
+					</span></a>
 		</div>
 	</div>
 	<div id="header2">

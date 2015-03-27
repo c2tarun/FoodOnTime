@@ -1,8 +1,6 @@
 package com.fot.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.fot.dao.ProductDAO;
 import com.fot.model.Product;
-import com.fot.model.ShoppingCartItems;
+import com.fot.model.ShoppingCart;
 import com.fot.util.Util;
 
 /**
@@ -22,6 +20,7 @@ import com.fot.util.Util;
  */
 @WebServlet("/CartController")
 public class CartController extends HttpServlet {
+	private static final String SHOPPING_CART = "ShoppingCart";
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -36,23 +35,42 @@ public class CartController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String quantity;
 
+		HttpSession session = request.getSession();
+		ShoppingCart cart = (ShoppingCart) session
+				.getAttribute(SHOPPING_CART);
+
+		// if the session is new, the cart won't exist.
+		if (cart == null) {
+			cart = new ShoppingCart();
+			session.setAttribute(SHOPPING_CART, cart);
+		}
+		
+		String productCode = (String) request.getParameter("productCode");
+		if(!Util.isEmpty(productCode)) {
+			Product productToAdd = ProductDAO.getProductByCode(productCode);
+			cart.addItem(productToAdd);
+		}
+		// This is temporary, fix how values are being displayed in Description.jsp and then direct code to Description.jsp
+		request.getRequestDispatcher("ProductsController").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-			IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession(true);
-		ShoppingCartItems cart = (ShoppingCartItems) session.getAttribute("shoppingCart");
+		ShoppingCart cart = (ShoppingCart) session.getAttribute(SHOPPING_CART);
 		if (cart == null) { // No cart already in session
-			cart = new ShoppingCartItems();
-			session.setAttribute("shoppingCart", cart);
+			cart = new ShoppingCart();
+			session.setAttribute(SHOPPING_CART, cart);
 		}
 		String pId;
 		pId = request.getParameter("pid");
@@ -62,7 +80,7 @@ public class CartController extends HttpServlet {
 		String productId = pId.substring(0, 3);
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		if (!Util.isEmpty(pId)) {
-			cart.addItem(ProductDAO.getProductByCode(productId), quantity);
+			//cart.addItem(ProductDAO.getProductByCode(productId), quantity);
 			cart.update(ProductDAO.getProductByCode(productId), quantity);
 		}
 
