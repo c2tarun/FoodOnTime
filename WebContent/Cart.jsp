@@ -36,22 +36,30 @@
 				<tbody>
 
 
-
 					<c:forEach var="products" items="${sessionScope.CartList}">
 						<tr>
-							<td>${products.productName }</td>
+							<td>${products.product.productName }</td>
 							<td>${products.quantity }</td>
-							<td>$ ${products.quantity * products.productCost }</td>
-							<td><form action="DeleteController" method="post"><input type="hidden" name="delete" value="true" /> <input
-								type="hidden" name="delPid" value="${products.productCode}" /> <input id="deleteCartProduct"
-								type="submit" value="Delete" style="margin-top: 20px;" /></form></td>
+							<td>$ ${products.quantity * products.product.productCost }</td>
+							<td><form action="CartController" method="post">
+									<input type="hidden" name="delete" value="true" /> <input
+										type="hidden" name="delPid"
+										value="${products.product.productCode}" /> <input
+										id="deleteCartProduct" type="submit" value="Delete"
+										style="margin-top: 20px;" />
+								</form></td>
 						</tr>
 					</c:forEach>
-					
-					<tr><td></td><td></td><td><b>Total Price:$ ${sessionScope.TotalPrice}</b></td><td></td></tr>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td><b>Total Price:$ ${sessionScope.TotalPrice}</b></td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
-			
+
 		</div>
 	</div>
 	<div class="spacer">&nbsp;</div>

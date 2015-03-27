@@ -35,26 +35,27 @@ public class CartController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String quantity;
 
 		HttpSession session = request.getSession();
-		ShoppingCart cart = (ShoppingCart) session
-				.getAttribute(SHOPPING_CART);
+		ShoppingCart cart = (ShoppingCart) session.getAttribute(SHOPPING_CART);
 
 		// if the session is new, the cart won't exist.
 		if (cart == null) {
 			cart = new ShoppingCart();
 			session.setAttribute(SHOPPING_CART, cart);
 		}
-		
+
 		String productCode = (String) request.getParameter("productCode");
-		if(!Util.isEmpty(productCode)) {
+		if (!Util.isEmpty(productCode)) {
 			Product productToAdd = ProductDAO.getProductByCode(productCode);
 			cart.addItem(productToAdd);
 		}
-		// This is temporary, fix how values are being displayed in Description.jsp and then direct code to Description.jsp
+		session.setAttribute("CartList", cart.getList());
+		session.setAttribute("TotalPrice", cart.getTotalPrice());
+		// This is temporary, fix how values are being displayed in
+		// Description.jsp and then direct code to Description.jsp
 		request.getRequestDispatcher("ProductsController").forward(request, response);
 	}
 
@@ -62,35 +63,29 @@ public class CartController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+			IOException {
 		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession(true);
-		ShoppingCart cart = (ShoppingCart) session.getAttribute(SHOPPING_CART);
+		ShoppingCart cart = (ShoppingCart) session.getAttribute("shoppingCart");
 		if (cart == null) { // No cart already in session
 			cart = new ShoppingCart();
-			session.setAttribute(SHOPPING_CART, cart);
-		}
-		String pId;
-		pId = request.getParameter("pid");
-		String pcost;
-		pcost = request.getParameter("pcost");
-
-		String productId = pId.substring(0, 3);
-		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		if (!Util.isEmpty(pId)) {
-			//cart.addItem(ProductDAO.getProductByCode(productId), quantity);
-			cart.update(ProductDAO.getProductByCode(productId), quantity);
+			session.setAttribute("shoppingCart", cart);
 		}
 
+		String delPid;
+		delPid = request.getParameter("delPid");
+		String delete = "false";
+		delete = request.getParameter("delete");
+
+		if (delete.equals("true")) {
+			cart.deleteItem(ProductDAO.getProductByCode(delPid));
+		}
 		session.setAttribute("CartList", cart.getList());
-		session.setAttribute("NumberOfItems", cart.getNumberOfItems());
-
 		session.setAttribute("TotalPrice", cart.getTotalPrice());
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Cart.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 }

@@ -18,14 +18,14 @@
 
 		</ul>
 		<div class="image">
-			<a href="#"><img src="images/cart.png" width="30" height="30" />
-				<span> <c:if test="${ShoppingCart.numberOfItems ge 0}">
+			<a href="Cart.jsp"><img src="images/cart.png" width="30"
+				height="30" /> <span> <c:if
+						test="${ShoppingCart.numberOfItems ge 0}">
 						<b>${ShoppingCart.numberOfItems} items</b>
-					</c:if>
-					<c:if test="${empty ShoppingCart}">
+					</c:if> <c:if test="${empty ShoppingCart}">
 						<b>0 items</b>
 					</c:if>
-					</span></a>
+			</span></a>
 		</div>
 	</div>
 	<div id="header2">
