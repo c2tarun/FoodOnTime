@@ -44,7 +44,7 @@
 					</div>
 					<a href="Description.jsp?Description=${products.description} &Name=${products.productName} &Logo=${products.imageUrl} &Price=${products.productCost} &Type=${products.category} &Code=${products.productCode}" id="logo"><img src="${products.imageUrl }" width="110" height="100" /></a>
 					<div class="bottom_desc">
-					<p style="display:inline-block; font-size: 18px;"><b>Price : $ ${products.productCost }</b></p><form style="display: inline-block; float: right" method="post" action = "CartController" id="addToCartForm${productCount.count }"><input style="display: inline-block; float: right" type="hidden" name="quantity" value="1" /><input type = "hidden" style="display: inline-block; float: right" name = "pid" value = "${products.productCode }" /><input type = "hidden" style="display: inline-block; float: right" name = "pcost" value = "${products.productCost }" style="display: inline-block; float: right"/><a href="#" style="float: right;" onClick="addToCart(${productCount.count})"><img src="images/cart.png" width="20" height="20"
+					<p style="display:inline-block; font-size: 18px;"><b>Price : $ ${products.productCost }</b></p><form style="display: inline-block; float: right" method="get" action = "CartController" id="addToCartForm${productCount.count }"><input type = "hidden" style="display: inline-block; float: right" name = "productCode" value = "${products.productCode }" /><a href="#" style="float: right;" onClick="addToCart(${productCount.count})"><img src="images/cart.png" width="20" height="20"
 						 /></a></form>
 					</div>
 				</div>
