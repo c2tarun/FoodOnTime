@@ -47,7 +47,7 @@ public class ProductsController extends HttpServlet {
 		}
 
 		// if no parameter is passed return all the products
-		//request.setAttribute("productList", ProductDAO.getAll());
+		request.setAttribute("productList", ProductDAO.getAll());
 		
 		//Dispatching to menu.jsp
 		RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");

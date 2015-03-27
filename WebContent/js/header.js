@@ -5,5 +5,8 @@ function changeActiveMenu(menuName){
 
 function clearList(){
 	document.getElementById("viewProductList").innerHTML="";
-	
+}
+
+function addToCart(count){
+	document.getElementById("addToCartForm"+count).submit();
 }

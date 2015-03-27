@@ -553,3 +553,11 @@ div.item_desc{
 .bottom_desc{
 	margin-top: 15px;
 }
+
+table{
+	width: 100%;
+}
+
+#deleteCartProduct{
+	margin: 20px;
+}

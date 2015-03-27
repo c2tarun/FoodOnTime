@@ -24,7 +24,7 @@
 	<div id="Content">
 		<h2>Cart</h2>
 		<div class="content-body">
-			<table border="1">
+			<table border="1" style="width: 100%; text-align: center;">
 				<thead>
 					<tr>
 						<th>ProductName</th>
@@ -43,13 +43,15 @@
 							<td>${products.quantity }</td>
 							<td>$ ${products.quantity * products.productCost }</td>
 							<td><form action="DeleteController" method="post"><input type="hidden" name="delete" value="true" /> <input
-								type="hidden" name="delPid" value="${products.productCode}" /> <input
-								type="submit" value="Delete" /></form></td>
+								type="hidden" name="delPid" value="${products.productCode}" /> <input id="deleteCartProduct"
+								type="submit" value="Delete" style="margin-top: 20px;" /></form></td>
 						</tr>
 					</c:forEach>
+					
+					<tr><td></td><td></td><td><b>Total Price:$ ${sessionScope.TotalPrice}</b></td><td></td></tr>
 				</tbody>
 			</table>
-			Total Price: ${sessionScope.TotalPrice}
+			
 		</div>
 	</div>
 	<div class="spacer">&nbsp;</div>
