@@ -59,13 +59,9 @@
 					</tr>
 				</tbody>
 			</table>
-
 		</div>
 	</div>
 	<div class="spacer">&nbsp;</div>
-
 	<jsp:include page="footer.jsp"></jsp:include>
-
 </body>
-
 </html>
