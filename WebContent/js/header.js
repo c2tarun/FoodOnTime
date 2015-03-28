@@ -6,7 +6,7 @@ function changeActiveMenu(menuName){
 function clearList(){
 	System.out.println("This is from js " + document.getElementById("select_product").value);
 	
-	//document.getElementById("viewProductList").innerHTML="";
+	document.getElementById("viewProductList").innerHTML="";
 }
 
 function addToCart(count){
