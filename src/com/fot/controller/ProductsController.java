@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fot.dao.ProductDAO;
+import com.fot.util.Constants;
 import com.fot.util.Util;
 
 /**
@@ -17,7 +18,9 @@ import com.fot.util.Util;
  */
 @WebServlet("/ProductsController")
 public class ProductsController extends HttpServlet {
-	private static final String PRODUCT_CODE = "ProductCode";
+	
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	public ProductsController() {
@@ -26,39 +29,33 @@ public class ProductsController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String productCode = request.getParameter(PRODUCT_CODE);
+		String productCode = request.getParameter(Constants.PRODUCT_CODE);
 		if (!Util.isEmpty(productCode)) {
-			request.setAttribute("product",
+			request.setAttribute(Constants.PRODUCT,
 					ProductDAO.getProductByCode(productCode));
-			
-		//	RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
-		//	dispatcher.forward(request, response);
-			
 			return;
 		}
 
-		String productCategory = request.getParameter("ProductCategory");
-		
+		String productCategory = request.getParameter(Constants.PRODUCT_CATEGORY);
+
 		if (!Util.isEmpty(productCategory)) {
-			
-			request.setAttribute("productList",
+			request.setAttribute(Constants.PRODUCT_LIST,
 					ProductDAO.getProductByCategory(productCategory));
-		
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
+
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("menu.jsp");
 			dispatcher.forward(request, response);
-			
-			
+
 			return;
 		}
 
 		// if no parameter is passed return all the products
-		request.setAttribute("productList", ProductDAO.getAll());
-		
-		//Dispatching to menu.jsp
+		request.setAttribute(Constants.PRODUCT_LIST, ProductDAO.getAll());
+
+		// Dispatching to menu.jsp
 		RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
 		dispatcher.forward(request, response);
-		
+
 		return;
 	}
 

@@ -1,6 +1,8 @@
 package com.fot.model;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable{
 
 	private String productCode;
 	private String productName;
