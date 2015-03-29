@@ -29,8 +29,11 @@
 				Filter By Category</h1>
 				<form name='test'>
 				<select id= "select_product" style="margin-left: 10px;" name="ProductCategory"><option></option>
+					
 					<option>bakery</option>	
-					<option>breakfast</option>
+					<option>breakfast</option> 
+					<option>All</option>
+					
 					
 					</select>
 			

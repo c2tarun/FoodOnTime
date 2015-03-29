@@ -39,21 +39,26 @@ public class ProductsController extends HttpServlet {
 
 		String productCategory = request.getParameter("ProductCategory");
 		
-		if (!Util.isEmpty(productCategory)) {
+		if("All".equals(productCategory))
+        {
+        	//System.out.println("This is from all");
+        	request.setAttribute("productList", ProductDAO.getAll());
+        }
+		
+		if (!Util.isEmpty(productCategory) && !productCategory.equals("All") ) {
 			
 			request.setAttribute("productList",
 					ProductDAO.getProductByCategory(productCategory));
 		
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
-			dispatcher.forward(request, response);
+			//RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
+			//dispatcher.forward(request, response);
 			
 			
 			return;
 		}
-
-		// if no parameter is passed return all the products
-		request.setAttribute("productList", ProductDAO.getAll());
+		
+		
 		
 		//Dispatching to menu.jsp
 		RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
