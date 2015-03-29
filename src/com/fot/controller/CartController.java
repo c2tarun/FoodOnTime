@@ -68,10 +68,10 @@ public class CartController extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession(true);
-		ShoppingCart cart = (ShoppingCart) session.getAttribute("shoppingCart");
+		ShoppingCart cart = (ShoppingCart) session.getAttribute(SHOPPING_CART);
 		if (cart == null) { // No cart already in session
 			cart = new ShoppingCart();
-			session.setAttribute("shoppingCart", cart);
+			session.setAttribute(SHOPPING_CART, cart);
 		}
 
 		String delPid;
