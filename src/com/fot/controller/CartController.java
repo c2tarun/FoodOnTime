@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.fot.dao.ProductDAO;
 import com.fot.model.Product;
 import com.fot.model.ShoppingCart;
+import com.fot.util.Constants;
 import com.fot.util.Util;
 
 /**
@@ -20,7 +21,7 @@ import com.fot.util.Util;
  */
 @WebServlet("/CartController")
 public class CartController extends HttpServlet {
-	private static final String SHOPPING_CART = "ShoppingCart";
+	
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -39,24 +40,22 @@ public class CartController extends HttpServlet {
 		String quantity;
 
 		HttpSession session = request.getSession();
-		ShoppingCart cart = (ShoppingCart) session.getAttribute(SHOPPING_CART);
+		ShoppingCart cart = (ShoppingCart) session.getAttribute(Constants.SHOPPING_CART);
 
 		// if the session is new, the cart won't exist.
 		if (cart == null) {
 			cart = new ShoppingCart();
-			session.setAttribute(SHOPPING_CART, cart);
+			session.setAttribute(Constants.SHOPPING_CART, cart);
 		}
 
-		String productCode = (String) request.getParameter("productCode");
+		String productCode = (String) request.getParameter(Constants.PRODUCT_CODE);
 		if (!Util.isEmpty(productCode)) {
 			Product productToAdd = ProductDAO.getProductByCode(productCode);
 			cart.addItem(productToAdd);
 		}
-		session.setAttribute("CartList", cart.getList());
-		session.setAttribute("TotalPrice", cart.getTotalPrice());
-		// This is temporary, fix how values are being displayed in
-		// Description.jsp and then direct code to Description.jsp
-		request.getRequestDispatcher("ProductsController").forward(request, response);
+		session.setAttribute(Constants.CART_LIST, cart.getList());
+		session.setAttribute(Constants.TOTAL_PRICE, cart.getTotalPrice());
+		request.getRequestDispatcher("ProductsController?"+Constants.PRODUCT_CODE+"=").forward(request, response);
 	}
 
 	/**
@@ -68,22 +67,22 @@ public class CartController extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession(true);
-		ShoppingCart cart = (ShoppingCart) session.getAttribute("shoppingCart");
+		ShoppingCart cart = (ShoppingCart) session.getAttribute(Constants.SHOPPING_CART);
 		if (cart == null) { // No cart already in session
 			cart = new ShoppingCart();
-			session.setAttribute("shoppingCart", cart);
+			session.setAttribute(Constants.SHOPPING_CART, cart);
 		}
 
 		String delPid;
-		delPid = request.getParameter("delPid");
+		delPid = request.getParameter(Constants.DEL_PID);
 		String delete = "false";
-		delete = request.getParameter("delete");
+		delete = request.getParameter(Constants.DELETE);
 
 		if (delete.equals("true")) {
 			cart.deleteItem(ProductDAO.getProductByCode(delPid));
 		}
-		session.setAttribute("CartList", cart.getList());
-		session.setAttribute("TotalPrice", cart.getTotalPrice());
+		session.setAttribute(Constants.CART_LIST, cart.getList());
+		session.setAttribute(Constants.TOTAL_PRICE, cart.getTotalPrice());
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Cart.jsp");
 		dispatcher.forward(request, response);
 	}

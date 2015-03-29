@@ -1,10 +1,11 @@
 package com.fot.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ShoppingCart {
+public class ShoppingCart implements Serializable {
 	static List<CartItem> cartItems = new ArrayList<CartItem>();
 	static int numberOfItems;
 	static int total;

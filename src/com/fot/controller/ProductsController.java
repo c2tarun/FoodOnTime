@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fot.dao.ProductDAO;
+import com.fot.util.Constants;
 import com.fot.util.Util;
 
 /**
@@ -17,7 +18,10 @@ import com.fot.util.Util;
  */
 @WebServlet("/ProductsController")
 public class ProductsController extends HttpServlet {
-	private static final String PRODUCT_CODE = "ProductCode";
+	
+	
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	public ProductsController() {
@@ -26,44 +30,33 @@ public class ProductsController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String productCode = request.getParameter(PRODUCT_CODE);
+		String productCode = request.getParameter(Constants.PRODUCT_CODE);
 		if (!Util.isEmpty(productCode)) {
-			request.setAttribute("product",
+			request.setAttribute(Constants.PRODUCT,
 					ProductDAO.getProductByCode(productCode));
-			
-		//	RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
-		//	dispatcher.forward(request, response);
-			
 			return;
 		}
 
-		String productCategory = request.getParameter("ProductCategory");
+		String productCategory = request.getParameter(Constants.PRODUCT_CATEGORY);
 		
-		if("All".equals(productCategory))
-        {
-        	//System.out.println("This is from all");
-        	request.setAttribute("productList", ProductDAO.getAll());
-        }
-		
-		if (!Util.isEmpty(productCategory) && !productCategory.equals("All") ) {
-			
-			request.setAttribute("productList",
+		if (!Util.isEmpty(productCategory) && !productCategory.equals(Constants.ALL)) {
+			request.setAttribute(Constants.PRODUCT_LIST,
 					ProductDAO.getProductByCategory(productCategory));
-		
-			
-			//RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
-			//dispatcher.forward(request, response);
-			
-			
+
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("menu.jsp");
+			dispatcher.forward(request, response);
+
 			return;
 		}
-		
-		
-		
-		//Dispatching to menu.jsp
+
+		// if no parameter is passed return all the products
+		request.setAttribute(Constants.PRODUCT_LIST, ProductDAO.getAll());
+
+		// Dispatching to menu.jsp
 		RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
 		dispatcher.forward(request, response);
-		
+
 		return;
 	}
 
