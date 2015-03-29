@@ -17,7 +17,7 @@ import com.fot.util.Util;
  * Servlet implementation class ProductsController
  */
 @WebServlet("/ProductsController")
-public class ProductsController extends HttpServlet {
+public class ProductsController extends BaseController {
 	
 	
 	
@@ -30,17 +30,17 @@ public class ProductsController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String productCode = request.getParameter(Constants.PRODUCT_CODE);
+		String productCode = request.getParameter(PRODUCT_CODE);
 		if (!Util.isEmpty(productCode)) {
-			request.setAttribute(Constants.PRODUCT,
+			request.setAttribute(PRODUCT,
 					ProductDAO.getProductByCode(productCode));
 			return;
 		}
 
-		String productCategory = request.getParameter(Constants.PRODUCT_CATEGORY);
+		String productCategory = request.getParameter(PRODUCT_CATEGORY);
 		
-		if (!Util.isEmpty(productCategory) && !productCategory.equals(Constants.ALL)) {
-			request.setAttribute(Constants.PRODUCT_LIST,
+		if (!Util.isEmpty(productCategory) && !productCategory.equals(ALL)) {
+			request.setAttribute(PRODUCT_LIST,
 					ProductDAO.getProductByCategory(productCategory));
 
 			RequestDispatcher dispatcher = request
@@ -51,7 +51,7 @@ public class ProductsController extends HttpServlet {
 		}
 
 		// if no parameter is passed return all the products
-		request.setAttribute(Constants.PRODUCT_LIST, ProductDAO.getAll());
+		request.setAttribute(PRODUCT_LIST, ProductDAO.getAll());
 
 		// Dispatching to menu.jsp
 		RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
