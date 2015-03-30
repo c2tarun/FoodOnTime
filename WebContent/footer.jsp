@@ -9,15 +9,11 @@
 </head>
 <body>
 <div class="footer">
-		<p>
-			&copy; Your Copyright Information<br /> Put all your links here..
-			write down what ever you like<br />
-			<!-- Removing this link back to Ramblingsoul.com will be violation of the Creative Commons Attribution 3.0 Unported License, under which this template is released for download -->
-			<a href="http://ramblingsoul.com">CSS Layout</a> by RamblingSoul.com
-			<!-- Copyright - Ramblingsoul.com -->
-			| <a href="http://validator.w3.org/check?uri=referer">XHTML 1.0</a> |
-			CSS
-		</p>
+		<center><p>
+			Get 
+			<a href="http://github.com/c2tarun/FoodOnTime">Food On Time</a> in
+			 <a href="http://www.github.com" target="blank">Github.com</a>
+		</p></center>
 
 	</div>
 </body>

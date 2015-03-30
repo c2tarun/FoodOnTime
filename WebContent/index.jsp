@@ -7,7 +7,7 @@
 <title>Food On Time</title>
 <link rel="shortcut icon" href="favicon.ico" />
 
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript" src="js/header.js"></script>
 
 </head>
@@ -19,15 +19,12 @@
 
 <div id="Content">
   <h2> Welcome To Food On Time!!!</h2>
-	<h1>What about this website???	</h1>
-	<p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam erat  nunc, tincidunt non, commodo ac, bibendum in, elit. Vivamus sit amet  velit. Etiam at leo. In aliquam, tellus vitae lobortis mattis, libero  neque luctus justo, a pulvinar neque lectus quis pede. Duis magna.  Suspendisse at risus. Sed porttitor ultricies quam. Sed tempus dui.  Duis feugiat sem quis nisl.  </p>
-	
-    <h1>Pages!!!</h1>
-    <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam erat  nunc, tincidunt non, commodo ac, bibendum in, elit. Vivamus sit amet  velit. Etiam at leo. In aliquam, tellus vitae lobortis mattis, libero  neque luctus justo, a pulvinar neque lectus quis pede. Duis magna.  Suspendisse at risus. Sed porttitor ultricies quam. Sed tempus dui.  Duis feugiat sem quis nisl.  </p>
-    <h1>Payment</h1>
-    <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam erat  nunc, tincidunt non, commodo ac, bibendum in, elit. Vivamus sit amet  velit. Etiam at leo. In aliquam, tellus vitae lobortis mattis, libero  neque luctus justo, a pulvinar neque lectus quis pede. Duis magna.  Suspendisse at risus. Sed porttitor ultricies quam. Sed tempus dui.  Duis feugiat sem quis nisl.  </p>
-    <h1>Creating Account</h1>
-    <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam erat  nunc, tincidunt non, commodo ac, bibendum in, elit. Vivamus sit amet  velit. Etiam at leo. In aliquam, tellus vitae lobortis mattis, libero  neque luctus justo, a pulvinar neque lectus quis pede. Duis magna.  Suspendisse at risus. Sed porttitor ultricies quam. Sed tempus dui.  Duis feugiat sem quis nisl.  </p>
+	<h1>Motivation</h1>
+		<p>The motivation behind this website is that nobody wants to stand in queue even to buy fast food. Standing and waiting in line kind of voids the point for fast food. There are websites, which will allow you to order food online. However, they’ll deliver it to some address and not at random places like bus stops, railway stations etc.<br/>In the fast paced world its good even to save 10-15 minutes. Using our service you can save same amount of time almost everyday, that’s an hour over a week and a movie time over a month.</p>	
+    <h1>Why Food On Time???</h1>
+    	<p>What we are offering will merge your waiting time at home and waiting time at bus stop. So if you have to order a pizza and catch a bus in 30 minutes we’ll deliver the food at the bus stop in 30 minutes time frame.
+		Or you want something from your favorite fast food restaurant for your journey we’ll provide it on the way at your given time.</p>
+    	
 	<h1>&nbsp;</h1>
 </div>
 <div class="spacer">&nbsp;</div>
