@@ -517,6 +517,11 @@ select{
 	margin-left: 10px;
 	padding-left: 10px;
 }
+
+#quantity{
+	width: 50px;	
+}
+
 div.menu-item{
 	margin: 5px;
     padding: 2px;

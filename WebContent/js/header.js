@@ -12,3 +12,8 @@ function clearList(){
 function addToCart(count){
 	document.getElementById("addToCartForm"+count).submit();
 }
+
+function updateQuantityFunction(count){
+	document.getElementById("form"+count).submit();
+}
+

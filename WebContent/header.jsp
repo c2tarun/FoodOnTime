@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/button.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
 </head>
 <body>
 	<div id="Header">

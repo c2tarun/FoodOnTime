@@ -48,16 +48,35 @@ public class CartController extends BaseController {
 			session.setAttribute(SHOPPING_CART, cart);
 		}
 
-		String productCode = (String) request.getParameter(PRODUCT_CODE);
-		if (!Util.isEmpty(productCode)) {
-			Product productToAdd = ProductDAO.getProductByCode(productCode);
-			cart.addItem(productToAdd);
+		if(request.getParameterMap().containsKey(UPDATE_PRODUCT) && 
+				request.getParameterMap().containsKey(UPDATE_QUANTITY)){
+					String updateProduct = (String) request.getParameter(UPDATE_PRODUCT);
+					int updateQuantity = Integer.parseInt(request.getParameter(UPDATE_QUANTITY));
+					if(!Util.isEmpty(updateProduct) && updateQuantity!=0){
+						
+						Product productToUpdate = ProductDAO.getProductByCode(updateProduct);
+						cart.update(productToUpdate, updateQuantity);
+						
+						session.setAttribute(CART_LIST, cart.getList());
+						session.setAttribute(TOTAL_PRICE, cart.getTotalPrice());
+						
+						request.getRequestDispatcher("Cart.jsp").forward(request, response);
+					}
+			
 		}
-		session.setAttribute(CART_LIST, cart.getList());
-		session.setAttribute(TOTAL_PRICE, cart.getTotalPrice());
-		request.getRequestDispatcher("ProductsController?"+PRODUCT_CODE+"=").forward(request, response);
+		
+		else{
+			String productCode = (String) request.getParameter(PRODUCT_CODE);
+			if (!Util.isEmpty(productCode)) {
+				Product productToAdd = ProductDAO.getProductByCode(productCode);
+				cart.addItem(productToAdd);
+			}
+			session.setAttribute(CART_LIST, cart.getList());
+			session.setAttribute(TOTAL_PRICE, cart.getTotalPrice());
+			request.getRequestDispatcher("ProductsController?"+PRODUCT_CODE+"=").forward(request, response);
+		}
+		
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)

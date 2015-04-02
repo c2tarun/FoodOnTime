@@ -19,6 +19,8 @@ public abstract class BaseController extends HttpServlet {
 	public static final String DEL_PID = "delPid";
 	public static final String SHOPPING_CART = "ShoppingCart";
 	public static final String ALL = "All";
+	public static final String UPDATE_QUANTITY = "UpdateQuantity";
+	public static final String UPDATE_PRODUCT = "UpdateProduct";
 
 	@Override
 	protected abstract void doGet(HttpServletRequest req,
