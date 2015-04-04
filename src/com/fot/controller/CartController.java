@@ -73,7 +73,8 @@ public class CartController extends BaseController {
 			}
 			session.setAttribute(CART_LIST, cart.getList());
 			session.setAttribute(TOTAL_PRICE, cart.getTotalPrice());
-			request.getRequestDispatcher("ProductsController?"+PRODUCT_CODE+"=").forward(request, response);
+			String prodCategory = (String) request.getParameter(PRODUCT_CATEGORY);
+			request.getRequestDispatcher("ProductsController?"+PRODUCT_CODE+"=&"+PRODUCT_CATEGORY+"="+prodCategory).forward(request, response);
 		}
 		
 	}
