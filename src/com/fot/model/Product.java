@@ -43,7 +43,7 @@ public class Product implements Serializable{
 	}
 
 	public String getCategory() {
-		return category;
+ 		return category;
 	}
 
 	public void setCategory(String category) {

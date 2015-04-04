@@ -17,7 +17,7 @@
 			<li id="index"><a href="index.jsp">Home</a></li>
 			<li id="menu1"><a href="ProductsController">Menu</a></li>
 			<li><a href="#">Contact</a></li>
-			<li><a href="#">LogIn</a></li>
+			<li id="login1"><a href="login.jsp">LogIn</a></li>
 
 		</ul>
 		<div class="image">
