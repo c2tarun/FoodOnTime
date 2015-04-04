@@ -22,22 +22,22 @@
 			<form id="myForm">
 				<table style="background-color: #F6F6EE;">
 					<tr>
-						<td><label for="userName">UserName</label></td>
+						<td style="width: 50%;"><label for="userName">UserName</label></td>
 						<td><input type="text" id="userName" name="userName"
-							maxlength="6" /></td>
+							maxlength="6" required placeholder="Minimum 4 Characters long" /></td>
 
 					</tr>
 
 					<tr>
 						<td><label for="first_name">FirstName</label></td>
-						<td><input type="text" id="first_name" name="firstName" /><br></td>
+						<td><input type="text" id="first_name" name="firstName" required placeholder="Your First Name" /><br></td>
 					</tr>
 
 
 
 					<tr>
 						<td><label for="last_name">LastName</label></td>
-						<td><input type="text" id="last_name" name="lastName" /><br></td>
+						<td><input type="text" id="last_name" name="lastName" required placeholder="Your Last Name" /><br></td>
 					</tr>
 
 
@@ -45,29 +45,30 @@
 					<tr>
 						<td><label for="password">Password</label></td>
 						<td><input type="password" id="password" name="password"
-							size="21" /><br></td>
+							size="21" required placeholder="Minimum 6 Characters long" /><br></td>
 					</tr>
 
 
 					<tr>
 						<td><label>ConfirmPassword</label></td>
 						<td><input type="password" id="confirm_password"
-							name="confirmPassword" size="21" /><br></td>
+							name="confirmPassword" size="21" required placeholder="Minimum 6 Characters long" /><br></td>
 					</tr>
 
 
 
 					<tr>
 						<td><label>Email</label></td>
-						<td><input type="email" id="email_id" name="emailID" /><br></td>
+						<td><input type="email" id="email_id" name="emailID" required 
+						placeholder="(eg)sample@gmail.com" /><br></td>
 					</tr>
 
 
 
 					<!-- <input type="submit" value="SUBMIT" onclick="return confirm('Are you sure?')" onclick="javascript:validate_textbox1(this.form); /> -->
 					<tr>
-						<td><input type="submit" value="SUBMIT" /> <input
-							type="reset" value="RESET"></td>
+						<td colspan="2" style="text-align: center;"><input type="submit" value="SUBMIT" class="button"/> <input
+							type="reset" value="RESET" class="button" /></td>
 					</tr>
 				</table>
 			</form>

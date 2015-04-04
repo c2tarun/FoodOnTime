@@ -608,6 +608,15 @@ div.item_desc {
 
 table {
 	width: 100%;
+	
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+table tr td{
+	padding: 10px;
 }
 
 .error {
@@ -619,4 +628,13 @@ table {
 
 #deleteCartProduct {
 	margin: 20px;
+}
+
+input[type="password"],input[type="text"],input[type="email"]{
+	width: 250px;
+	height: 25px;
+}
+
+input[type="submit"],input[type="reset"]{
+
 }

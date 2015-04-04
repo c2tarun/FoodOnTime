@@ -2,11 +2,21 @@ package com.fot.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PRODUCT")
 public class Product implements Serializable{
 
+	@Id
 	private String productCode;
 	private String productName;
 	private String category;
+	
+	@Column(length=500)
 	private String description;
 	private String imageUrl;
 	private double productCost;

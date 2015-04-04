@@ -10,6 +10,8 @@
 <link href="css/button.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+
 </head>
 <body>
 	<div id="Header">
@@ -17,7 +19,9 @@
 			<li id="index"><a href="index.jsp">Home</a></li>
 			<li id="menu1"><a href="ProductsController">Menu</a></li>
 			<li><a href="#">Contact</a></li>
-			<li id="login1"><a href="login.jsp">LogIn</a></li>
+
+			<li id="login"><a href="loginSelection.jsp">LogIn</a></li>
+
 
 		</ul>
 		<div class="image">
