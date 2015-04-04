@@ -33,7 +33,7 @@
         <mapping package="com.fot.model"/>
         <mapping class="com.fot.model.Product"/>
         <mapping class="com.fot.model.User"/>
-
+        
     </session-factory>
 
 </hibernate-configuration>
