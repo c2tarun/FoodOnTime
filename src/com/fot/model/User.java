@@ -1,34 +1,41 @@
 package com.fot.model;
 
-public class UserRegistration {
+import java.io.Serializable;
 
-	private String userName;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "USER")
+public class User implements Serializable{
+
+	@Id
+	private String username;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private String emailID;
-	private String confirmPassword;
 
-	public UserRegistration() {
+	public User() {
 	}
 
-	public UserRegistration(String userName, String password, String firstName, String lastName, String emailID,
-			String confirmPassword) {
+	public User(String userName, String password, String firstName,
+			String lastName, String emailID) {
 		super();
-		this.userName = userName;
+		this.username = userName;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailID = emailID;
-		this.confirmPassword = confirmPassword;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -61,14 +68,6 @@ public class UserRegistration {
 
 	public void setEmailID(String emailID) {
 		this.emailID = emailID;
-	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
 	}
 
 }
