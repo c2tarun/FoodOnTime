@@ -44,16 +44,12 @@ public class UserController extends HttpServlet {
 		String Username  = request.getParameter("Username");
 		String Password  = request.getParameter("Password");
 		
-		 HttpSession session = request.getSession();
-		 
+		HttpSession session = request.getSession(); 
 		session.setAttribute("savedUsername", Username);
-		
-		 
-		 
 		
 		if (Username.equals("user") && Password.equals("pass"))
 		{
-			response.sendRedirect("index.jsp");
+		 response.sendRedirect("index.jsp");
 	     System.out.println("Login successfull");
 		}
 		
