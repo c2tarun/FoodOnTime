@@ -14,7 +14,7 @@
 This is login page 
 
 <div id="Content" >
-<form method="Get" action="UserController">
+<form method="Post" action="UserController">
 &nbsp;
 <h2><b>Login</b></h2>
 

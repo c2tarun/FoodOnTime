@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fot.dao.UserDAO;
+import com.fot.util.Util;
+
 /**
  * Servlet implementation class UserController
  */
@@ -41,25 +44,7 @@ public class UserController extends HttpServlet {
 		
 		
 		
-		String Username  = request.getParameter("Username");
-		String Password  = request.getParameter("Password");
-		
-		HttpSession session = request.getSession(); 
-		session.setAttribute("savedUsername", Username);
-		
-		if (Username.equals("user") && Password.equals("pass"))
-		{
-		 response.sendRedirect("index.jsp");
-	     System.out.println("Login successfull");
-		}
-		
-		else
-		{
-			response.sendRedirect("login.jsp");
-			System.out.println("Login not successfull");
-		}
 		
 	}
-
 }
 
