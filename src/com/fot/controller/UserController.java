@@ -42,10 +42,7 @@ public class UserController extends HttpServlet {
 		
 		
 		String Username  = request.getParameter("Username");
-		//System.out.println(Username);
-		
 		String Password  = request.getParameter("Password");
-		//System.out.println(Password);
 		
 		 HttpSession session = request.getSession();
 		 
