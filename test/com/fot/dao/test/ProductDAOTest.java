@@ -25,7 +25,8 @@ public class ProductDAOTest {
 	@Test
 	public void getProductByCategoryTest() {
 		List<Product> products = ProductDAO.getProductByCategory("bakery");
-		Assert.assertTrue(products.size() > 0);
+		Assert.assertNotNull(products);
+		Assert.assertTrue(products.get(0).getCategory().equals("bakery"));
 	}
 	
 //	@Test
