@@ -73,11 +73,44 @@ public class UserController extends BaseController {
 	//login 
 		
 		
+		String Username  = request.getParameter("Username");
+		String Password  = request.getParameter("Password");
+		
+		//HttpSession session = request.getSession(); 
+		//session.setAttribute("savedUsername", Username);
+		if (!Util.isEmpty(Username))
+		{
+		if (Username.equals("testUser") && Password.equals("pass"))
+		{
+		 //response.sendRedirect("index.jsp");
+	     System.out.println("Login successfull");
+	     request.setAttribute(Username, UserDAO.getUserByUsername(Username));
+			
+	     
+		/*	String test = (String)request.getParameter("testing");
+			System.out.println("Username is  " + Username);
+			System.out.println("The value of test is " + test);  */
+		}
+		
+		else
+		{
+			//response.sendRedirect("login.jsp");
+			System.out.println("Login not successfull");
+		}
+		
+		}
+		
+	}
+		
+		
+		
+		
+		
 	
 	}
 		
 		
 
-	}
+	
 
 
