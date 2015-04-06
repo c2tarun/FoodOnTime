@@ -32,6 +32,7 @@
 					<option>breakfast</option>
 				</select> <a href="ProductsController"><button id="submitCategory"
 						onclick="clearList()" value="select">Submit</button></a>
+						
 			</form>
 			<br />
 			<div id="viewProductList">
