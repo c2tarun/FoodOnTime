@@ -11,20 +11,26 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body onload="changeActiveMenu('menu1');">
+<body onload="changeActiveMenu('login');">
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<jsp:include page="sideBars.jsp"></jsp:include>
 
 	<div id="Content">
 		<h2>USER REGISTERATION</h2>
+		
+		<c:if test="${not empty requestScope.Message }">
+			<script>alert("${requestScope.Message }");</script>	
+			
+		</c:if>
 		<div class="content-body">
-			<form id="myForm">
+			<form id="myForm" method="post" action="UserController">
+				<input type="hidden" value="registration" name="loginType" /> 
 				<table style="background-color: #F6F6EE;">
 					<tr>
 						<td style="width: 50%;"><label for="userName">UserName</label></td>
 						<td><input type="text" id="userName" name="userName"
-							maxlength="6" required placeholder="Minimum 4 Characters long" /></td>
+							maxlength="10" required placeholder="Minimum 4 Characters " /></td>
 
 					</tr>
 

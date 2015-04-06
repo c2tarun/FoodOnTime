@@ -2,27 +2,115 @@ package com.fot.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.fot.dao.UserDAO;
+import com.fot.util.Util;
+import com.fot.model.User;
+
+/**
+ * Servlet implementation class UserController
+ */
 @WebServlet("/UserController")
 public class UserController extends BaseController {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public UserController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+	}	
+		
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-	}
 
-}
+		if(("registration").equals((String) request.getParameter("loginType"))){
+			User userCheck = UserDAO.getUserByUsername((String) request.getParameter("userName"));
+			
+			if((userCheck == null)){
+				User user = new User((String) request.getParameter("userName"),
+									 (String) request.getParameter("password"),
+									 (String) request.getParameter("firstName"),
+									 (String) request.getParameter("lastName"),
+									 (String) request.getParameter("emailID"));
+				UserDAO.saveUser(user);
+				
+				request.setAttribute(MESSAGE, "Registration Complete. Please Login");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+				dispatcher.forward(request, response);
+			}
+			
+			else{
+				request.setAttribute(MESSAGE, "User Exists");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("registeration.jsp");
+				dispatcher.forward(request, response);
+			}
+		}
+	
+	//login 
+		
+		
+		String Username  = request.getParameter("Username");
+		String Password  = request.getParameter("Password");
+		
+		//HttpSession session = request.getSession(); 
+		//session.setAttribute("savedUsername", Username);
+		if (!Util.isEmpty(Username))
+		{
+		if (Username.equals("testUser") && Password.equals("pass"))
+		{
+		 //response.sendRedirect("index.jsp");
+	     System.out.println("Login successfull");
+	     request.setAttribute(Username, UserDAO.getUserByUsername(Username));
+			
+	     
+		/*	String test = (String)request.getParameter("testing");
+			System.out.println("Username is  " + Username);
+			System.out.println("The value of test is " + test);  */
+		}
+		
+		else
+		{
+			//response.sendRedirect("login.jsp");
+			System.out.println("Login not successfull");
+		}
+		
+		}
+		
+	}
+		
+		
+		
+		
+		
+	
+	}
+		
+		
+
+	
+
+

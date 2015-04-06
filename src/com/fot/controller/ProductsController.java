@@ -43,6 +43,8 @@ public class ProductsController extends BaseController {
 			request.setAttribute(PRODUCT_LIST,
 					ProductDAO.getProductByCategory(productCategory));
 
+			
+			
 			request.setAttribute(PRODUCT_CATEGORY, productCategory);
 			RequestDispatcher dispatcher = request
 					.getRequestDispatcher("menu.jsp");
