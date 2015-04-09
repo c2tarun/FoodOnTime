@@ -34,7 +34,7 @@ Username:<br>
 <br>
 <br>
 Password:<br>
-<input type="text" name="Password">
+<input type="password" name="Password">
 <br>
 <br>
 <button value="select">Submit</button>

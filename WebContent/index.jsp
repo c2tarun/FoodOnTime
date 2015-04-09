@@ -16,7 +16,7 @@
 <jsp:include page="header.jsp"></jsp:include>
 <jsp:include page="sideBars.jsp"></jsp:include>
 
-  Hello <%=session.getAttribute("savedUsername") %> -->
+  Hello <%=session.getAttribute("savedUsername") %> 
 
 <div id="Content">
   <h2> Welcome To Food On Time!!!</h2>
