@@ -16,18 +16,30 @@ public class User implements Serializable{
 	private String firstName;
 	private String lastName;
 	private String emailID;
+	private String nickname;
 
 	public User() {
 	}
 
 	public User(String userName, String password, String firstName,
-			String lastName, String emailID) {
+			String lastName, String emailID, String nickname) {
 		super();
 		this.username = userName;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailID = emailID;
+		this.nickname = nickname;
+	}
+	
+	
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public String getUsername() {
