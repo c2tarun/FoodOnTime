@@ -32,5 +32,4 @@ public class UserDAO extends BaseDAO {
 		User user = (User) query.uniqueResult();
 		return user;
 	}
-
 }

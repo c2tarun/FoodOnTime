@@ -35,6 +35,7 @@ public class UserController extends BaseController {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	
 		
 	}	
 		
@@ -70,47 +71,44 @@ public class UserController extends BaseController {
 			}
 		}
 	
-	//login 
-		
+	    //User Controller for login 
 		
 		String Username  = request.getParameter("Username");
 		String Password  = request.getParameter("Password");
 		
-		//HttpSession session = request.getSession(); 
-		//session.setAttribute("savedUsername", Username);
-		if (!Util.isEmpty(Username))
-		{
-		if (Username.equals("testUser") && Password.equals("pass"))
-		{
-		 //response.sendRedirect("index.jsp");
-	     System.out.println("Login successfull");
-	     request.setAttribute(Username, UserDAO.getUserByUsername(Username));
-			
-	     
-		/*	String test = (String)request.getParameter("testing");
-			System.out.println("Username is  " + Username);
-			System.out.println("The value of test is " + test);  */
-		}
 		
+		User userCheck = UserDAO.getUserByUsername(Username);
+		
+		if (userCheck != null && !Util.isEmpty(Username) && !Util.isEmpty(Password)) 
+		{
+		String User_name = userCheck.getUsername();
+		String pass_word = userCheck.getPassword();
+		
+		if (Username.equals(User_name) && Password.equals(pass_word))
+		{
+	     
+	     System.out.println("Login successfull");     
+	     HttpSession session = request.getSession(); 
+	     session.setAttribute("savedUsername", Username);
+	     response.sendRedirect("index.jsp"); 
+		}
 		else
 		{
-			//response.sendRedirect("login.jsp");
+			
+			request.setAttribute(MESSAGE, "Login Not successful.");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
+			   
+		}
+		}
+		else
+		{
+			
 			System.out.println("Login not successfull");
+			request.setAttribute(MESSAGE, "Login Not successful.");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
+			   
 		}
-		
-		}
-		
+		}	
 	}
-		
-		
-		
-		
-		
-	
-	}
-		
-		
-
-	
-
-

@@ -33,11 +33,13 @@ Username:<br>
 <input type="text" name="Username">
 <br>
 <br>
-Passsword:<br>
+Password:<br>
 <input type="text" name="Password">
 <br>
 <br>
 <button value="select">Submit</button>
+
+
 
 </center>
 </form>
