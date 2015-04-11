@@ -34,8 +34,7 @@ public class UserController extends BaseController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 	}
@@ -45,20 +44,18 @@ public class UserController extends BaseController {
 	 *      response)
 	 */
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+			IOException {
 		// TODO Auto-generated method stub
 
 		if (("registration").equals((String) request.getParameter("loginType"))) {
 			User userCheck = UserDAO.getUserByUsername((String) request.getParameter("userName"));
 			if ((userCheck == null)) {
 				User user = new User((String) request.getParameter("userName"),
-						(String) request.getParameter("password"),
-						(String) request.getParameter("firstName"),
-						(String) request.getParameter("lastName"),
-						(String) request.getParameter("emailID"), null);
+						(String) request.getParameter("password"), (String) request.getParameter("firstName"),
+						(String) request.getParameter("lastName"), (String) request.getParameter("emailID"), null);
 				UserDAO.saveUser(user);
-				request.setAttribute(MESSAGE,"Registration Complete. Please Login");
+				request.setAttribute(MESSAGE, "Registration Complete. Please Login");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -68,27 +65,31 @@ public class UserController extends BaseController {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("registeration.jsp");
 				dispatcher.forward(request, response);
 			}
-			
+
 		}
 
 		// User Controller for login
 
 		String Username = request.getParameter(USERNAME);
 		String Password = request.getParameter("Password");
-
+		String userLogValue = "false";
 		User userCheck = UserDAO.getUserByUsername(Username);
 
-		if (userCheck != null && !Util.isEmpty(Username)
-				&& !Util.isEmpty(Password)) {
+		if (userCheck != null && !Util.isEmpty(Username) && !Util.isEmpty(Password)) {
 			String User_name = userCheck.getUsername();
 			String pass_word = userCheck.getPassword();
 
 			if (Username.equals(User_name) && Password.equals(pass_word)) {
 
-				System.out.println("Login successfull");
 				HttpSession session = request.getSession();
 				session.setAttribute("savedUsername", Username);
-				response.sendRedirect("index.jsp");
+				userLogValue = (String) session.getAttribute("userLog");
+				if (userLogValue == null) {
+					response.sendRedirect("index.jsp");
+
+				} else if (userLogValue.equals("true")) {
+					response.sendRedirect("checkout.jsp");
+				}
 			} else {
 
 				request.setAttribute(MESSAGE, "Login Not successful.");
@@ -98,7 +99,6 @@ public class UserController extends BaseController {
 			}
 		} else {
 
-			System.out.println("Login not successfull");
 			request.setAttribute(MESSAGE, "Login Not successful.");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
