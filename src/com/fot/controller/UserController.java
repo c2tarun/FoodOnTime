@@ -20,6 +20,7 @@ import com.fot.util.Util;
 @WebServlet("/UserController")
 public class UserController extends BaseController {
 	
+	
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -48,12 +49,12 @@ public class UserController extends BaseController {
 			IOException {
 		// TODO Auto-generated method stub
 
-		if (("registration").equals((String) request.getParameter("loginType"))) {
-			User userCheck = UserDAO.getUserByUsername((String) request.getParameter("userName"));
+		if (REGISTRATION.equals((String) request.getParameter(LOGIN_TYPE))) {
+			User userCheck = UserDAO.getUserByUsername((String) request.getParameter(USERNAME));
 			if ((userCheck == null)) {
-				User user = new User((String) request.getParameter("userName"),
-						(String) request.getParameter("password"), (String) request.getParameter("firstName"),
-						(String) request.getParameter("lastName"), (String) request.getParameter("emailID"), null);
+				User user = new User((String) request.getParameter(USERNAME),
+						(String) request.getParameter(PASSWORD), (String) request.getParameter(FIRST_NAME),
+						(String) request.getParameter(LAST_NAME), (String) request.getParameter(EMAIL_ID), null);
 				UserDAO.saveUser(user);
 				request.setAttribute(MESSAGE, "Registration Complete. Please Login");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
@@ -83,7 +84,7 @@ public class UserController extends BaseController {
 
 			if (Username.equals(User_name) && Password.equals(pass_word)) {
 
-				session.setAttribute("savedUsername", userCheck);
+				session.setAttribute(CURRENT_USER, userCheck);
 
 				userLogValue = (String) session.getAttribute("userLog");
 				if (userLogValue == null) {
@@ -94,7 +95,7 @@ public class UserController extends BaseController {
 				}
 
 			} else {
-				session.setAttribute("savedUsername", null);
+				session.setAttribute(CURRENT_USER, null);
 				request.setAttribute(MESSAGE, "Login Not successful.");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 				dispatcher.forward(request, response);

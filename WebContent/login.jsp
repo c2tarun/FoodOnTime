@@ -31,11 +31,11 @@
 <br> 
 
 <b>Username:</b><br>
-<input  type="text" name="Username">
+<input  type="text" name="username">
 <br>
 <br>
 <b>Password:</b><br>
-<input type="password" name="Password">
+<input type="password" name="password">
 <br>
 <br>
 <button value="select">Submit</button>

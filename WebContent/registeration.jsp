@@ -28,8 +28,8 @@
 				<input type="hidden" value="registration" name="loginType" /> 
 				<table style="background-color: #F6F6EE;">
 					<tr>
-						<td style="width: 50%;"><label for="userName">UserName</label></td>
-						<td><input type="text" id="userName" name="userName"
+						<td style="width: 50%;"><label for="username">UserName</label></td>
+						<td><input type="text" id="username" name="username"
 							maxlength="10" required placeholder="Minimum 4 Characters " /></td>
 
 					</tr>
