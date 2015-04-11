@@ -54,6 +54,10 @@
 		<pathelement location="WebContent/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
 		<pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.1.35-bin.jar"/>
 	</path>
+	<path id="JUnit 4.libraryclasspath">
+		<pathelement location="WebContent/WEB-INF/lib/junit.jar"/>
+		<pathelement location="WebContent/WEB-INF/lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+	</path>
 	<target name="init">
 		<mkdir dir="build/classes" />
 		<copy includeemptydirs="false" todir="build/classes">
