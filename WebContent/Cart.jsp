@@ -95,7 +95,7 @@ table, th, td {
 					</tbody>
 				</table>
 				<c:choose>
-					<c:when test="${sessionScope.savedUsername!= null}">
+					<c:when test="${sessionScope.currentUser!= null}">
 						<a href="checkout.jsp" class="button"
 							style="margin-top: 20px; float: right;">Checkout</a>
 					</c:when>

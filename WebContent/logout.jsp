@@ -8,12 +8,12 @@
 </head>
 <body>
 
- <%=session.getAttribute("savedUsername")
+ <%=session.getAttribute("currentUser")
 %>
 u r in log out 
 
 <%
-session.removeAttribute("savedUsername");
+session.removeAttribute("currentUser");
 %>
 
 <%

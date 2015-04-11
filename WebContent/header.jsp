@@ -38,11 +38,11 @@
 	<div id="header2">
 		<div class="logo">Food On Time</div>
 		<div class="banner">
-			<c:if test="${savedUsername eq null}">
+			<c:if test="${currentUser eq null}">
 				<span>Hello, Guest</span>
 			</c:if>
-			<c:if test="${savedUsername ne null}">
-				<span>Hello, ${savedUsername.firstName}</span>
+			<c:if test="${currentUser ne null}">
+				<span>Hello, ${currentUser.firstName}</span>
 			</c:if>
 		</div>
 	</div>

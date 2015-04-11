@@ -19,8 +19,8 @@ import com.fot.util.Util;
  */
 @WebServlet("/UserController")
 public class UserController extends BaseController {
-	
-	
+
+	private static final String USERNAME_PASSWORD_INCORRECT = "Username password incorrect.";
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -35,7 +35,8 @@ public class UserController extends BaseController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 	}
@@ -45,25 +46,31 @@ public class UserController extends BaseController {
 	 *      response)
 	 */
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-			IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 		if (REGISTRATION.equals((String) request.getParameter(LOGIN_TYPE))) {
-			User userCheck = UserDAO.getUserByUsername((String) request.getParameter(USERNAME));
+			User userCheck = UserDAO.getUserByUsername((String) request
+					.getParameter(USERNAME));
 			if ((userCheck == null)) {
 				User user = new User((String) request.getParameter(USERNAME),
-						(String) request.getParameter(PASSWORD), (String) request.getParameter(FIRST_NAME),
-						(String) request.getParameter(LAST_NAME), (String) request.getParameter(EMAIL_ID), null);
+						(String) request.getParameter(PASSWORD),
+						(String) request.getParameter(FIRST_NAME),
+						(String) request.getParameter(LAST_NAME),
+						(String) request.getParameter(EMAIL_ID), null);
 				UserDAO.saveUser(user);
-				request.setAttribute(MESSAGE, "Registration Complete. Please Login");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+				request.setAttribute(MESSAGE,
+						"Registration Complete. Please Login");
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("login.jsp");
 				dispatcher.forward(request, response);
 			}
 
 			else {
 				request.setAttribute(MESSAGE, "User Exists");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("registeration.jsp");
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("registeration.jsp");
 				dispatcher.forward(request, response);
 			}
 
@@ -71,42 +78,43 @@ public class UserController extends BaseController {
 
 		// User Controller for login
 
-		String Username = request.getParameter(USERNAME);
-		String Password = request.getParameter(PASSWORD);
+		String username = request.getParameter(USERNAME);
+		String password = request.getParameter(PASSWORD);
 		String userLogValue = "false";
+		String pageFwd = "";
 
-		User userCheck = UserDAO.getUserByUsername(Username);
+		User userCheck = UserDAO.getUserByUsername(username);
 		HttpSession session = request.getSession();
 
-		if (userCheck != null && !Util.isEmpty(Username) && !Util.isEmpty(Password)) {
-			String User_name = userCheck.getUsername();
-			String pass_word = userCheck.getPassword();
+		if (userCheck != null && !Util.isEmpty(username)
+				&& !Util.isEmpty(password)) {
+			String enteredUsername = userCheck.getUsername();
+			String enteredPassword = userCheck.getPassword();
 
-			if (Username.equals(User_name) && Password.equals(pass_word)) {
+			if (username.equalsIgnoreCase(enteredUsername)
+					&& password.equals(enteredPassword)) {
 
 				session.setAttribute(CURRENT_USER, userCheck);
 
 				userLogValue = (String) session.getAttribute("userLog");
 				if (userLogValue == null) {
-					response.sendRedirect("index.jsp");
-
+					pageFwd = "index.jsp";
 				} else if (userLogValue.equals("true")) {
-					response.sendRedirect("checkout.jsp");
+					pageFwd = "checkout.jsp";
 				}
 
 			} else {
 				session.setAttribute(CURRENT_USER, null);
-				request.setAttribute(MESSAGE, "Login Not successful.");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-				dispatcher.forward(request, response);
-
+				request.setAttribute(MESSAGE, USERNAME_PASSWORD_INCORRECT);
+				pageFwd = "login.jsp";
 			}
 		} else {
-
-			request.setAttribute(MESSAGE, "Login Not successful.");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-			dispatcher.forward(request, response);
-
+			session.setAttribute(CURRENT_USER, null);
+			request.setAttribute(MESSAGE, USERNAME_PASSWORD_INCORRECT);
+			pageFwd = "login.jsp";
 		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher(pageFwd);
+		dispatcher.forward(request, response);
+
 	}
 }

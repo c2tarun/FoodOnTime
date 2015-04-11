@@ -24,7 +24,7 @@ public abstract class BaseController extends HttpServlet {
 	public static final String MESSAGE = "Message";	
 	protected static final String PASSWORD = "password";
 	protected static final String USERNAME = "username";
-	protected static final String CURRENT_USER = "savedUsername";
+	protected static final String CURRENT_USER = "currentUser";
 	protected static final String EMAIL_ID = "emailID";
 	protected static final String LAST_NAME = "lastName";
 	protected static final String FIRST_NAME = "firstName";
