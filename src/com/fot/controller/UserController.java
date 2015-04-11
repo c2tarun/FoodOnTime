@@ -19,7 +19,7 @@ import com.fot.model.User;
  */
 @WebServlet("/UserController")
 public class UserController extends BaseController {
-	protected static final String USERNAME = "Username";
+	
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -74,7 +74,7 @@ public class UserController extends BaseController {
 		// User Controller for login
 
 		String Username = request.getParameter(USERNAME);
-		String Password = request.getParameter("Password");
+		String Password = request.getParameter(PASSWORD);
 
 		User userCheck = UserDAO.getUserByUsername(Username);
 
@@ -88,6 +88,7 @@ public class UserController extends BaseController {
 				System.out.println("Login successfull");
 				HttpSession session = request.getSession();
 				session.setAttribute("savedUsername", Username);
+				session.setAttribute("userObject", userCheck);
 				response.sendRedirect("index.jsp");
 			} else {
 

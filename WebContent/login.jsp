@@ -29,15 +29,17 @@
 
 <center>
 <br> 
-Username:<br>
-<input type="text" name="Username">
+
+<b>Username:</b><br>
+<input  type="text" name="Username">
 <br>
 <br>
-Password:<br>
+<b>Password:</b><br>
 <input type="password" name="Password">
 <br>
 <br>
 <button value="select">Submit</button>
+
 
 
 

@@ -21,7 +21,7 @@
 			<li><a href="#">Contact</a></li>
 
 			<li id="login"><a href="loginSelection.jsp">LogIn</a></li>
-
+            <li id="logout"><a href="logout.jsp">Logout</a></li>
 
 		</ul>
 		<div class="image">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 
 <head>
@@ -16,7 +17,22 @@
 <jsp:include page="header.jsp"></jsp:include>
 <jsp:include page="sideBars.jsp"></jsp:include>
 
-  Hello <%=session.getAttribute("savedUsername") %> 
+
+ 
+<p align = right >
+ <i>Hello </i>
+  <%
+ if (session.getAttribute("savedUsername") != null)
+ {
+%> 
+<%=session.getAttribute("savedUsername")%> 
+ 
+<% } %>  
+
+</p>
+
+
+
 
 <div id="Content">
   <h2> Welcome To Food On Time!!!</h2>
