@@ -13,6 +13,9 @@
 <%
 session.removeAttribute("currentUser");
 session.removeAttribute("ShoppingCart");
+session.removeAttribute("CartList");
+session.removeAttribute("TotalPrice");
+session.removeAttribute("userLog");
 %>
 
 <%
