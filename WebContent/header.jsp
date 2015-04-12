@@ -11,7 +11,17 @@
 
 <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/validate_number.js"></script>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+	var loginCheck = <%= session.getAttribute("currentUser") %>;
+	
+	if(loginCheck == null)
+		$("#logout").hide();
+	else $("#login").hide();
+	});
+</script>
 </head>
 <body>
 	<div id="Header">
