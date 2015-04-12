@@ -12,6 +12,7 @@
 %>
 <%
 session.removeAttribute("currentUser");
+session.removeAttribute("ShoppingCart");
 %>
 
 <%

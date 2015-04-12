@@ -30,7 +30,7 @@ table, th, td {
 		<div class="content-body">
 <h2>Thank You for Placing the order</h2>
 <b>Shipping address</b><br/>
-${sessionScope.currentUser} <br/>
+${sessionScope.currentUser.username} <br/>
 	Apt		${sessionScope.apt} , ${sessionScope.streetName}<br/>
 			${sessionScope.city}, ${sessionScope.state}<br/>
 			${sessionScope.zipCode}<br/>
