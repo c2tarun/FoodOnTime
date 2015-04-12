@@ -5,12 +5,10 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fot.dao.ProductDAO;
-import com.fot.util.Constants;
 import com.fot.util.Util;
 
 /**
@@ -43,8 +41,6 @@ public class ProductsController extends BaseController {
 			request.setAttribute(PRODUCT_LIST,
 					ProductDAO.getProductByCategory(productCategory));
 
-			
-			
 			request.setAttribute(PRODUCT_CATEGORY, productCategory);
 			RequestDispatcher dispatcher = request
 					.getRequestDispatcher("menu.jsp");

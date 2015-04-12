@@ -8,10 +8,6 @@
 </head>
 <body>
 
- <%=session.getAttribute("currentUser")
-%>
-u r in log out 
-
 <%
 session.removeAttribute("currentUser");
 session.removeAttribute("ShoppingCart");
