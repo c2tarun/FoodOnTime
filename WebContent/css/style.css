@@ -579,13 +579,40 @@ div.menu-item {
 	width: 200px;
 	float: left;
 	text-align: center;
+	
+	-webkit-transition: border 1s ease;
+         -moz-transition: border 1s ease;
+           -o-transition: border 1s ease;
+          -ms-transition: border 1s ease;
+              transition: border 1s ease;
 }
 
-div#logo {
+div.menu-item:hover{
+	border: 2px solid black;
+}
+
+#logo {
 	display: inline;
 	margin-top: 25px;
 	border: 1px solid #ffffff;
 	width: 70%;
+	
+
+}
+
+#logo:hover {
+	animation-name: shake;
+	animation-duration: 5s;
+}
+
+@keyframes shake {
+	0% { transform: translate(0px); }
+	17% { transform: translate(10px); }
+	34% { transform: translate(-10px); }
+	51% { transform: translate(6px); }
+	68% { transform: translate(-6px); }
+	85% { transform: translate(3px); }
+	100% { transform: translate(0px); }
 }
 
 .top_desc {
@@ -630,11 +657,11 @@ table tr td{
 	margin: 20px;
 }
 
-input[type="password"],input[type="text"],input[type="email"]{
+input[type="password"],input[type="text"],input[type="email"],input[type=date]{
 	width: 250px;
 	height: 25px;
 }
 
-input[type="submit"],input[type="reset"]{
-
+input[type="text"],input[type=date]{
+	padding-left: 10px;
 }

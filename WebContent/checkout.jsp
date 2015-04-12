@@ -8,7 +8,7 @@
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title>Food On Time</title>
 <link rel="shortcut icon" href="favicon.ico" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body onload="changeActiveMenu('login');">
@@ -59,7 +59,7 @@
 
 					<tr>
 						<td><label>Zip Code</label></td>
-						<td><input type="text" id="zipCode" name="zipCode" size="21"
+						<td><input type="text" id="zipCode" name="zipCode" maxlength="5"  size="21"
 							required placeholder="Your zip code" /><br></td>
 					</tr>
 					<tr>
@@ -80,8 +80,8 @@
 					</tr>
 					<tr>
 						<td><label for="expiryDate">Expiry date</label></td>
-						<td><input type="text" id="expiryDate" name="expiryDate"
-							required placeholder="Expiry Date" /><br></td>
+						<td><input type="date" id="expiryDate" name="expiryDate"
+							required /><br></td>
 					</tr>
 
 

@@ -11,7 +11,17 @@
 
 <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/validate_number.js"></script>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+	var loginCheck = <%= session.getAttribute("currentUser") %>;
+	
+	if(loginCheck == null)
+		$("#logout").hide();
+	else $("#login").hide();
+	});
+</script>
 </head>
 <body>
 	<div id="Header">
@@ -38,7 +48,12 @@
 	<div id="header2">
 		<div class="logo">Food On Time</div>
 		<div class="banner">
-			<span>Have Food At Your Time!!!</span>
+			<c:if test="${currentUser eq null}">
+				<span>Hello, Guest</span>
+			</c:if>
+			<c:if test="${currentUser ne null}">
+				<span>Hello, ${currentUser.firstName}</span>
+			</c:if>
 		</div>
 	</div>
 </body>

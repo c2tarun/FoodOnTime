@@ -16,24 +16,6 @@
 <body onload="changeActiveMenu('index');">
 <jsp:include page="header.jsp"></jsp:include>
 <jsp:include page="sideBars.jsp"></jsp:include>
-
-
- 
-<p align = right >
- <i>Hello </i>
-  <%
- if (session.getAttribute("savedUsername") != null)
- {
-%> 
-<%=session.getAttribute("savedUsername")%> 
- 
-<% } %>  
-
-</p>
-
-
-
-
 <div id="Content">
   <h2> Welcome To Food On Time!!!</h2>
 	<h1>Motivation</h1>

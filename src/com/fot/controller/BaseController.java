@@ -22,8 +22,14 @@ public abstract class BaseController extends HttpServlet {
 	public static final String UPDATE_QUANTITY = "UpdateQuantity";
 	public static final String UPDATE_PRODUCT = "UpdateProduct";
 	public static final String MESSAGE = "Message";	
-	protected static final String PASSWORD = "Password";
-	protected static final String USERNAME = "Username";
+	protected static final String PASSWORD = "password";
+	protected static final String USERNAME = "username";
+	protected static final String CURRENT_USER = "currentUser";
+	protected static final String EMAIL_ID = "emailID";
+	protected static final String LAST_NAME = "lastName";
+	protected static final String FIRST_NAME = "firstName";
+	protected static final String LOGIN_TYPE = "loginType";
+	protected static final String REGISTRATION = "registration";
 	
 	@Override
 	protected abstract void doGet(HttpServletRequest req,

@@ -22,7 +22,7 @@
 	<jsp:include page="sideBars.jsp"></jsp:include>
 
 	<div id="Content1">
-		<h2><%=request.getParameter("Name")%></h2>
+		<center><h2><%=request.getParameter("Name")%></h2></center><br/>
 
 		<img src="<%=request.getParameter("Logo")%>" width="310" height="300" />
 		<div class="item_desc">
