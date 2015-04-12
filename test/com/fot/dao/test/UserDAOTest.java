@@ -20,6 +20,8 @@ public class UserDAOTest {
 	public void testGetUserByUsername() {
 		User user = UserDAO.getUserByUsername("testUser");
 		Assert.assertNotNull(user);
+		
+		
 	}
 
 }
