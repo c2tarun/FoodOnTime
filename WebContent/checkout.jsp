@@ -88,7 +88,7 @@
 
 					<tr>
 						<td><label for="cvv">CVV</label></td>
-						<td><input type="text" id="cvv" name="cvv" maxlength="3"
+						<td><input type="password" id="cvv" name="cvv" maxlength="3"
 							required placeholder="Your cvv" /><br></td>
 					</tr>
 					<tr>

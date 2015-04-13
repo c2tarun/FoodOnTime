@@ -8,8 +8,11 @@
 </head>
 <body>
 
+<<<<<<< HEAD
  <%=session.getAttribute("currentUser")
 %>
+=======
+>>>>>>> 02f3f41943b07d387215b75e9f82878af3b4627c
 <%
 session.removeAttribute("currentUser");
 session.removeAttribute("ShoppingCart");
