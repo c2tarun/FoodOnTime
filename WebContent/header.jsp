@@ -13,15 +13,6 @@
 <script type="text/javascript" src="js/header.js"></script>
 <script type="text/javascript" src="js/validate_number.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-	var loginCheck = <%= session.getAttribute("currentUser") %>;
-	
-	if(loginCheck == null)
-		$("#logout").hide();
-	else $("#login").hide();
-	});
-</script>
 </head>
 <body>
 	<div id="Header">
@@ -29,9 +20,12 @@
 			<li id="index"><a href="index.jsp">Home</a></li>
 			<li id="menu1"><a href="ProductsController">Menu</a></li>
 			<li><a href="#">Contact</a></li>
-
-			<li id="login"><a href="loginSelection.jsp">Login</a></li>
+			<c:if test="${currentUser eq null}">
+				<li id="login"><a href="loginSelection.jsp">Login</a></li>
+			</c:if>
+			<c:if test="${currentUser ne null}">
             <li id="logout"><a href="logout.jsp">Logout</a></li>
+            </c:if>
 
 		</ul>
 		<div class="image">
