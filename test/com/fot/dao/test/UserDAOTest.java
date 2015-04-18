@@ -14,6 +14,7 @@ public class UserDAOTest {
 		User user = new User("testUser1","password","test","test","test@gmail.com","testNick");
 		UserDAO.saveUser(user);
 		Assert.assertTrue(true);
+		UserDAO.deleteUserByUsername("testUser1");
 	}
 	
 	@Test
@@ -22,6 +23,10 @@ public class UserDAOTest {
 		Assert.assertNotNull(user);
 	}
 
+	@Test
+	public void testDeleteUser() {
+		Assert.assertTrue(UserDAO.deleteUserByUsername("testReg"));
+	}
 }
 
 
