@@ -22,6 +22,7 @@ $(document).ready(function() {
 				required : true,
 				minlength : 3
 			},
+			deliveryTime : "required"
 		},
 		messages : {
 			apt : {
@@ -45,6 +46,7 @@ $(document).ready(function() {
 				required : "Provide a Cvv",
 				minlength : "cvv needs to be 3 characters long"
 			},
+			deliveryTime : "Please provide the Time"
 		}
 	});
 });

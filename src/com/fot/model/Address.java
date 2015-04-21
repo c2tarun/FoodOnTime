@@ -6,6 +6,14 @@ public class Address {
 	String city;
 	String state;
 	String zipCode;
+	
+	public Address(String apt,String streetName,String city,String state,String zipCode){
+		this.apt = apt;
+		this.streetName = streetName;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+	}
 
 	public String getApt() {
 		return apt;
@@ -46,5 +54,7 @@ public class Address {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
+	
+	
 
 }

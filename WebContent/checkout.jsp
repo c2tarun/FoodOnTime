@@ -8,10 +8,10 @@
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title>Food On Time</title>
 <link rel="shortcut icon" href="favicon.ico" />
-
+<script type="text/javascript" src="js/Date.js"></script>
 </head>
 
-<body onload="changeActiveMenu('logout');">
+<body onload="changeActiveMenu('logout');getDate();">
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<jsp:include page="sideBars.jsp"></jsp:include>
@@ -22,7 +22,17 @@
 
 		<div class="content-body">
 			<form id="checkoutForm" action="OrderController" method="post">
+				<input type="hidden" name="orderDate" id="orderDate" />
 				<table style="background-color: #F6F6EE;">
+					<tr>
+						<td><h3>Enter Time of Delivery</h3></td>
+					</tr>
+					
+					<tr>
+						<td><label>Date & Time</label></td>
+						<td><input type="datetime-local" id="deliveryTime" name="deliveryTime" required/></td>
+					</tr>
+					
 					<tr>
 						<td><h3>Enter Shipping Details</h3></td>
 					</tr>

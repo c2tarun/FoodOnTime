@@ -191,7 +191,7 @@ body>#Header2 {
 	margin-right: 272px;
 	margin-bottom: 20px;
 	margin-left: 275px;
-	padding-right: 10px;
+	padding-right: 10%;
 	padding-bottom: 10px;
 	padding-left: 10px;
 	width: 60%;
@@ -232,6 +232,7 @@ body>#Header2 {
 }
 
 #Menu_Right {
+	position: relative;
 	display: block;
 	float: right;
 	left: 20px;
@@ -657,11 +658,11 @@ table tr td{
 	margin: 20px;
 }
 
-input[type="password"],input[type="text"],input[type="email"],input[type=date]{
+input[type="password"],input[type="text"],input[type="email"],input[type=date],input[type=datetime-local]{
 	width: 250px;
 	height: 25px;
 }
 
-input[type="text"],input[type=date]{
+input[type="text"],input[type=date],input[type=datetime-local]{
 	padding-left: 10px;
 }
