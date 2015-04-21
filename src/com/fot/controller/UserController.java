@@ -35,7 +35,7 @@ public class UserController extends BaseController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
+	public void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
@@ -46,7 +46,7 @@ public class UserController extends BaseController {
 	 *      response)
 	 */
 
-	protected void doPost(HttpServletRequest request,
+	public void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
@@ -73,7 +73,7 @@ public class UserController extends BaseController {
 						.getRequestDispatcher("registeration.jsp");
 				dispatcher.forward(request, response);
 			}
-
+			return;
 		}
 
 		// User Controller for login

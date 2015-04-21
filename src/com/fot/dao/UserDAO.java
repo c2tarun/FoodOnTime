@@ -32,4 +32,16 @@ public class UserDAO extends BaseDAO {
 		User user = (User) query.uniqueResult();
 		return user;
 	}
+	
+	public static boolean deleteUserByUsername(String username) {
+		Session session = getSession();
+		session.beginTransaction();
+		
+		Query query = session.createQuery("delete User where username = :username");
+		query.setString("username", username);
+		int result = query.executeUpdate();
+		session.getTransaction().commit();
+		session.close();
+		return result > 0;
+	}
 }
