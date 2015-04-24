@@ -17,6 +17,8 @@ public class User implements Serializable{
 	private String lastName;
 	private String emailID;
 	private String nickname;
+	private String status;
+	
 
 	public User() {
 	}
@@ -48,7 +50,7 @@ public class User implements Serializable{
 	}
 
 	public User(String userName, String password, String firstName,
-			String lastName, String emailID, String nickname) {
+			String lastName, String emailID, String nickname, String status) {
 		super();
 		this.username = userName;
 		this.password = password;
@@ -56,6 +58,7 @@ public class User implements Serializable{
 		this.lastName = lastName;
 		this.emailID = emailID;
 		this.nickname = nickname;
+		this.status=status;
 	}
 	
 	
@@ -107,5 +110,11 @@ public class User implements Serializable{
 	public void setEmailID(String emailID) {
 		this.emailID = emailID;
 	}
+	public String getStatus() {
+		return status;
+	}
 
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }

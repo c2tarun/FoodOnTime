@@ -14,3 +14,5 @@ TO foodontime_user@localhost;
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP
 ON foodontime.*
 TO foodontime_user@localhost;
+
+alter table foodontime.user add column status varchar(255) DEFAULT NULL;

@@ -12,6 +12,11 @@ public abstract class BaseController extends HttpServlet {
 	public static final String PRODUCT_CODE = "ProductCode";
 	public static final String PRODUCT = "product";
 	public static final String PRODUCT_CATEGORY = "ProductCategory";
+	public static final String PRODUCT_NAME = "productName";
+	public static final String CATEGORY = "category";
+	public static final String PRODUCT_DESC = "description";
+	public static final String IMAGE_URL = "imageUrl";
+	public static final String PRODUCT_COST = "productCost";
 	public static final String PRODUCT_LIST = "productList";
 	public static final String TOTAL_PRICE = "TotalPrice";
 	public static final String CART_LIST = "CartList";

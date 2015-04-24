@@ -8,6 +8,8 @@
 </head>
 <body>
 
+ <%=session.getAttribute("currentUser")
+%>
 <%
 session.removeAttribute("currentUser");
 session.removeAttribute("ShoppingCart");
@@ -22,4 +24,5 @@ response.sendRedirect("index.jsp");
 
 </body>
 </html>
+
 
