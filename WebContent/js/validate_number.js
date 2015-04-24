@@ -2,7 +2,7 @@
  * 
  */
 $(document).ready(function(){
-$("#cvv,#cardNumber,#zipCode").on("keypress",function(evt){
+$("#cvv,#cardNumber,#zipCode,#productCost").on("keypress",function(evt){
 	
 	evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;

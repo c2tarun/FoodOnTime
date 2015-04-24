@@ -24,7 +24,8 @@
 	<div id="Content">
 		<h2>Select Your Menu!!!!</h2>
 		<div class="content-body">
-			<h1 style="display: inline-block">Filter By Category</h1>
+			<h1 style="display: inline-block">Filter By Category</h1><a href="Addadmin.jsp" class="button"
+							style="margin-top: 20px; float: right;">Add</a>
 			<form name='test'>
 				<select id="select_product" style="margin-left: 10px;"
 					name="ProductCategory"><option>All</option>

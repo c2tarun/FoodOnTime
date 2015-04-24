@@ -11,7 +11,7 @@
 
 </head>
 
-<body onload="changeActiveMenu('login');">
+<body onload="changeActiveMenu('logout');">
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<jsp:include page="sideBars.jsp"></jsp:include>

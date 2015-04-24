@@ -12,6 +12,11 @@ public abstract class BaseController extends HttpServlet {
 	public static final String PRODUCT_CODE = "ProductCode";
 	public static final String PRODUCT = "product";
 	public static final String PRODUCT_CATEGORY = "ProductCategory";
+	public static final String PRODUCT_NAME = "productName";
+	public static final String CATEGORY = "category";
+	public static final String PRODUCT_DESC = "description";
+	public static final String IMAGE_URL = "imageUrl";
+	public static final String PRODUCT_COST = "productCost";
 	public static final String PRODUCT_LIST = "productList";
 	public static final String TOTAL_PRICE = "TotalPrice";
 	public static final String CART_LIST = "CartList";
@@ -22,14 +27,14 @@ public abstract class BaseController extends HttpServlet {
 	public static final String UPDATE_QUANTITY = "UpdateQuantity";
 	public static final String UPDATE_PRODUCT = "UpdateProduct";
 	public static final String MESSAGE = "Message";	
-	protected static final String PASSWORD = "password";
-	protected static final String USERNAME = "username";
-	protected static final String CURRENT_USER = "currentUser";
-	protected static final String EMAIL_ID = "emailID";
-	protected static final String LAST_NAME = "lastName";
-	protected static final String FIRST_NAME = "firstName";
-	protected static final String LOGIN_TYPE = "loginType";
-	protected static final String REGISTRATION = "registration";
+	public static final String PASSWORD = "password";
+	public static final String USERNAME = "username";
+	public static final String CURRENT_USER = "currentUser";
+	public static final String EMAIL_ID = "emailID";
+	public static final String LAST_NAME = "lastName";
+	public static final String FIRST_NAME = "firstName";
+	public static final String LOGIN_TYPE = "loginType";
+	public static final String REGISTRATION = "registration";
 	
 	@Override
 	protected abstract void doGet(HttpServletRequest req,

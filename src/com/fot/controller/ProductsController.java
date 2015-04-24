@@ -17,16 +17,13 @@ import com.fot.util.Util;
 @WebServlet("/ProductsController")
 public class ProductsController extends BaseController {
 	
-	
-	
-	
 	private static final long serialVersionUID = 1L;
 
 	public ProductsController() {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request,
+	public void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String productCode = request.getParameter(PRODUCT_CODE);
 		if (!Util.isEmpty(productCode)) {
@@ -59,7 +56,7 @@ public class ProductsController extends BaseController {
 		return;
 	}
 
-	protected void doPost(HttpServletRequest request,
+	public void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 	}
 

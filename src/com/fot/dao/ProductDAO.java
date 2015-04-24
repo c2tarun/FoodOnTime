@@ -32,4 +32,12 @@ public final class ProductDAO extends BaseDAO {
 		query.setString("category", category);
 		return query.list();
 	}
+	
+	public static void saveProduct(Product product) {
+		Session session = getSession();
+		session.beginTransaction();
+		session.save(product);
+		session.getTransaction().commit();
+		session.close();
+	}
 }
