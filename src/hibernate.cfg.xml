@@ -33,6 +33,7 @@
         <mapping package="com.fot.model"/>
         <mapping class="com.fot.model.Product"/>
         <mapping class="com.fot.model.User"/>
+        <mapping class="com.fot.model.Order"/>
         
     </session-factory>
 

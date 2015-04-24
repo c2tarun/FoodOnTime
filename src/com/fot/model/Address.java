@@ -1,20 +1,39 @@
 package com.fot.model;
 
-public class Address {
+import java.io.Serializable;
+
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+
+public class Address implements Serializable {
+
 	String apt;
 	String streetName;
 	String city;
 	String state;
 	String zipCode;
 	
+	public Address(){
+		
+	}
+	
 	public Address(String apt,String streetName,String city,String state,String zipCode){
+		super();
 		this.apt = apt;
 		this.streetName = streetName;
 		this.city = city;
 		this.state = state;
 		this.zipCode = zipCode;
 	}
-
+	
+	public String getFullAddress(){
+		return apt+","+streetName+","+city+","+state+"-"+zipCode;
+	}
+	
 	public String getApt() {
 		return apt;
 	}

@@ -2,6 +2,7 @@ package com.fot.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpSession;
 
 import com.fot.dao.OrderDAO;
 import com.fot.model.Address;
+import com.fot.model.CartItem;
 import com.fot.model.Order;
+import com.fot.model.Product;
 import com.fot.model.ShoppingCart;
 import com.fot.model.User;
 
@@ -48,6 +51,7 @@ public class OrderController extends BaseController {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String apt, zip, streetName, city, state, time, today;
+		int orderId;
 		apt = request.getParameter("apt");
 		city = request.getParameter("city");
 		state = request.getParameter("state");
@@ -57,17 +61,31 @@ public class OrderController extends BaseController {
 		today = request.getParameter("orderDate");
 		
 		Address address = new Address(apt,streetName,city,state,zip);
+		String user_address = address.getFullAddress();
+		String products="";
+		int i=0;
 		
 		User user = (User) session.getAttribute(CURRENT_USER);
 		
-		Order order = new Order(user.getUsername(),address,time,today);
-		OrderDAO.saveOrder(order);
+		orderId = OrderDAO.getOrderId() + 1;
 		
-		/* response.setContentType("text/html");
-		    PrintWriter out = response.getWriter();
-		out.print("<html><body>");
-		out.print("<p>"+user.getUsername()+"<br/></p>");
-		out.print("</body></html>");*/
+		Double totalCost = (Double) session.getAttribute(TOTAL_PRICE);
+		
+		ShoppingCart cart = (ShoppingCart) session.getAttribute(SHOPPING_CART);
+		List<CartItem> myCart = (List<CartItem>) cart.getList();		
+	    
+		for(i=0;i<myCart.size()-1;i++){
+			Product myProduct = myCart.get(i).getProduct();
+		    
+		    //Order products = new Order(myProduct.getProductCode(),myProduct.getProductName(),myCart.get(i).getQuantity(),myProduct.getProductCost()*myCart.get(i).getQuantity());
+		    //OrderDAO.saveProducts(products);
+			
+			products +=myProduct.getProductName()+"  -  "+ myCart.get(i).getQuantity()+",";
+		}
+		Product myProduct = myCart.get(i).getProduct();
+		products +=myProduct.getProductName()+"  -  "+ myCart.get(i).getQuantity();
+		Order order = new Order(orderId,user.getUsername(),user_address,time,today,totalCost,products);
+		OrderDAO.saveOrder(order);	
 		
 		session.setAttribute("apt", apt);
 		session.setAttribute("city", city);
