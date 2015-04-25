@@ -9,10 +9,9 @@
 <title>Food On Time</title>
 <link rel="shortcut icon" href="favicon.ico" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/button.css" rel="stylesheet" type="text/css" />
 <style>
 table, th, td {
-	text-align: center;
-	border: 1px solid black;
 	border-collapse: collapse;
 }
 </style>
@@ -28,15 +27,27 @@ table, th, td {
 
 
 		<div class="content-body">
-<h2>Thank You for Placing the order</h2>
+		<h2>Thank You for Placing the order</h2>
+		<table border="0"><tr><td>
+
 <b>Shipping address</b><br/>
 ${sessionScope.currentUser.username} <br/>
 	Apt		${sessionScope.apt} , ${sessionScope.streetName}<br/>
 			${sessionScope.city}, ${sessionScope.state}<br/>
 			${sessionScope.zipCode}<br/>
-		
+		</td>
+		<td>
+		<span  style="float: right;">
+		<b>Shipping Date & Time</b><br/>
+		<c:set var = "date" value="${fn:split(sessionScope.deliveryTime,'T')[0] }"></c:set>
+		<c:set var = "time" value="${fn:split(sessionScope.deliveryTime,'T')[1] }"></c:set>
+		${date }&nbsp; ${time}
+		</span>	
+		</td></tr></table>
 			<h2>Order Summary</h2>
-			<table border="1">
+			<table border="1" style="text-align: center;
+	border: 1px solid black;
+	border-collapse: collapse;">
 				<thead>
 
 					<tr>
@@ -60,6 +71,11 @@ ${sessionScope.currentUser.username} <br/>
 					</tr>
 				</tbody>
 			</table>
+			<br/>
+			<center>
+				<button onclick="window.location='ProductsController'" class="button">Order More</button>
+				<button onclick="window.location='logout.jsp'" class="button">Exit Now</button>
+			</center>
 		</div>
 	</div>
 	<div class="spacer">&nbsp;</div>
