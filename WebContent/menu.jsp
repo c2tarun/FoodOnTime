@@ -26,6 +26,8 @@
 		<div class="content-body">
 			<h1 style="display: inline-block">Filter By Category</h1><a href="Addadmin.jsp" class="button"
 							style="margin-top: 20px; float: right;">Add</a>
+							
+							
 			<form name='test'>
 				<select id="select_product" style="margin-left: 10px;"
 					name="ProductCategory"><option>All</option>
@@ -45,10 +47,22 @@
 						<div class="top_desc">
 							<b>${products.productName }</b>
 						</div>
-						<a
+						
+						
+					       <!--  <a
 							href="Description.jsp?Description=${products.description} &Name=${products.productName} &Logo=${products.imageUrl} &Price=${products.productCost} &Type=${products.category} &Code=${products.productCode}"
 							id="logo"><img src="${products.imageUrl }" width="110"
+							height="100" /></a>       -->
+							
+							
+							<a
+							href="UpdateProduct.jsp?Description=${products.description} &Name=${products.productName} &Logo=${products.imageUrl} &Price=${products.productCost} &Type=${products.category} &Code=${products.productCode}"
+							id="logo"><img src="${products.imageUrl }" width="110"
 							height="100" /></a>
+							
+							
+							
+							
 						<div class="bottom_desc">
 							<p style="display: inline-block; font-size: 18px;">
 								<b>Price : $ ${products.productCost }</b>

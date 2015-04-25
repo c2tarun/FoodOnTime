@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public abstract class BaseController extends HttpServlet {
 
-	public static final String PRODUCT_CODE = "ProductCode";
+	public static final String PRODUCT_CODE = "productCode";
 	public static final String PRODUCT = "product";
 	public static final String PRODUCT_CATEGORY = "ProductCategory";
 	public static final String PRODUCT_NAME = "productName";

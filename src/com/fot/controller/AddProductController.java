@@ -41,9 +41,11 @@ public class AddProductController extends BaseController {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+            
+		    
 			Product productCheck = ProductDAO.getProductByCode((String) request.getParameter(PRODUCT_CODE));
 			if ((productCheck == null)) {
+				
 				String cost= request.getParameter(PRODUCT_COST);
 				double productCost = Double.parseDouble(cost);
 				Product product = new Product((String) request.getParameter(PRODUCT_CODE),
@@ -51,13 +53,12 @@ public class AddProductController extends BaseController {
 						(String) request.getParameter(CATEGORY),
 						(String) request.getParameter(PRODUCT_DESC),
 						(String) request.getParameter(IMAGE_URL), productCost);
-				ProductDAO.saveProduct(product);
+				        ProductDAO.saveProduct(product);
 						response.sendRedirect("ProductsController");
-			}
+			}  
 
 			else {
-				request.setAttribute(MESSAGE, "Product Exists");
-				
+				request.setAttribute(MESSAGE, "Product Exists");				
 				request.setAttribute("productCode",(String) request.getParameter(PRODUCT_CODE));
 				request.setAttribute("productName",(String) request.getParameter(PRODUCT_NAME));
 				request.setAttribute("description",(String) request.getParameter(PRODUCT_DESC));
@@ -66,7 +67,7 @@ public class AddProductController extends BaseController {
 				RequestDispatcher dispatcher = request
 						.getRequestDispatcher("Addadmin.jsp");
 				dispatcher.forward(request, response);
+				
 			}
 	}
-
 }
