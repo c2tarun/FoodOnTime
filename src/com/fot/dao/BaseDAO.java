@@ -1,5 +1,9 @@
 package com.fot.dao;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -13,6 +17,17 @@ public class BaseDAO {
 	static SessionFactory sessionFactory;
 
 	private static void buildSessionFactory() {
+		String configFile = "";
+		try {
+			Context env = (Context) new InitialContext().lookup("java:comp/env");
+			configFile = (String) env.lookup("dbconfig");
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			configFile = "hibernate_test.cfg.xml";
+			
+		}
+		System.out.println("Got configFile ************ " + configFile);
 		configuration = new Configuration().configure();
 		serviceRegistery = new StandardServiceRegistryBuilder().applySettings(
 				configuration.getProperties()).build();
