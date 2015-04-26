@@ -16,8 +16,7 @@ import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USER_ORDER")
-//@SecondaryTable(name = "user_products")
+@Table(name = "user_order")
 public class Order implements Serializable{
 
 	@Id
