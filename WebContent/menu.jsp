@@ -66,7 +66,7 @@
 						<c:if test="${currentUser.status ne stat}">
 
 							<a
-								href="Description.jsp?Description=${products.description} &Name=${products.productName} &Logo=${products.imageUrl} &Price=${products.productCost} &Type=${products.category} &Code=${products.productCode}"
+								href="ProductsController?productCode=${products.productCode}"
 								id="logo"><img src="${products.imageUrl }" width="110"
 								height="100" /></a>
 

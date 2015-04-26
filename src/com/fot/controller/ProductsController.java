@@ -29,6 +29,7 @@ public class ProductsController extends BaseController {
 		if (!Util.isEmpty(productCode)) {
 			request.setAttribute(PRODUCT,
 					ProductDAO.getProductByCode(productCode));
+			request.getRequestDispatcher("Description.jsp").forward(request, response);
 			return;
 		}
 
@@ -58,6 +59,7 @@ public class ProductsController extends BaseController {
 
 	public void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }
