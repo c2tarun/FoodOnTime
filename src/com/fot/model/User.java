@@ -50,7 +50,7 @@ public class User implements Serializable{
 	}
 
 	public User(String userName, String password, String firstName,
-			String lastName, String emailID, String nickname, String status) {
+			String lastName, String emailID, String nickname) {
 		super();
 		this.username = userName;
 		this.password = password;
@@ -58,7 +58,6 @@ public class User implements Serializable{
 		this.lastName = lastName;
 		this.emailID = emailID;
 		this.nickname = nickname;
-		this.status=status;
 	}
 	
 	

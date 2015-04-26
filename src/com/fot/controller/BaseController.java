@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public abstract class BaseController extends HttpServlet {
 
-	public static final String PRODUCT_CODE = "ProductCode";
+	public static final String PRODUCT_CODE = "productCode";
 	public static final String PRODUCT = "product";
 	public static final String PRODUCT_CATEGORY = "ProductCategory";
 	public static final String PRODUCT_NAME = "productName";
@@ -35,7 +35,11 @@ public abstract class BaseController extends HttpServlet {
 	public static final String FIRST_NAME = "firstName";
 	public static final String LOGIN_TYPE = "loginType";
 	public static final String REGISTRATION = "registration";
+
 	public static final String ORDER_LIST = "orderList";
+
+	protected static final String ACTION = "action";
+
 	
 	@Override
 	protected abstract void doGet(HttpServletRequest req,

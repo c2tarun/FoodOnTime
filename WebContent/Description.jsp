@@ -22,19 +22,19 @@
 	<jsp:include page="sideBars.jsp"></jsp:include>
 
 	<div id="Content1">
-		<center><h2><%=request.getParameter("Name")%></h2></center><br/>
+		<center><h2>${product.productName }</h2></center><br/>
 
-		<img src="<%=request.getParameter("Logo")%>" width="310" height="300" />
+		<img src="${product.imageUrl}" width="310" height="300" />
 		<div class="item_desc">
 			<h1>
 				<p>
-					<b>Category: </b><%=request.getParameter("Type")%><br> <b>Description:
-					</b><%=request.getParameter("Description")%><br> <b>Price: </b>$
-					<%=request.getParameter("Price")%><br>
+					<b>Category: </b>${product.category}<br> <b>Description:
+					</b>${product.description}<br> <b>Price: </b>$
+					${product.productCost}<br>
 				</p>
 			</h1>
 
-			<a href="CartController?ProductCode=<%=request.getParameter("Code")%>" class="button">Add To Cart</a>
+			<a href="CartController?ProductCode=${product.productCode }%>" class="button">Add To Cart</a>
 
 		</div>
 		<div class="spacer">&nbsp;</div>

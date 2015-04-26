@@ -17,25 +17,25 @@
 	<jsp:include page="sideBars.jsp"></jsp:include>
 
 	<div id="Content">
-		<h2>Admin Add Product</h2>
+		<h2>Admin Update Product</h2>
 		<c:if test="${not empty requestScope.Message }">
 			<script>alert("${requestScope.Message }");</script>	
 			
 		</c:if>
 		<div class="content-body">
-			<form id="addForm" method="post" action="AddProductController">
+			<form id="addForm" method="post" action="UpdateProductController">
 				<table style="background-color: #F6F6EE;">
 					<tr>
 						<td style="width: 50%;"><label for="productCode">Product
 								Code</label></td>
-						<td><input type="text" id="productCode" name="productCode" value="${productCode}"
-							maxlength="10" required placeholder="Minimum 4 Characters(PRXX) " /></td>
+						<td><input type="text" id="productCode" name="productCode" value="${product.productCode}"
+							maxlength="10" required placeholder="Minimum 4 Characters(PRXX)" readonly="readonly"/></td>
 
 					</tr>
 
 					<tr>
 						<td><label for="productName">Product Name</label></td>
-						<td><input type="text" id="productName" name="productName" value="${productName}"
+						<td><input type="text" id="productName" name="productName" value="${product.productName}"
 							required placeholder="Product Name" /><br></td>
 					</tr>
 
@@ -53,7 +53,7 @@
 					<tr>
 						<td><label for="description">Product Description</label></td>
 						<td>
-						<textarea rows="4" cols="29" id="description" name="description"placeholder="Product Description...">${description}</textarea>
+						<textarea rows="4" cols="29" id="description" name="description" placeholder="Product Description...">${product.description}</textarea>
 						<br></td>
 					</tr>
 
@@ -63,7 +63,7 @@
 
 					<tr>
 						<td><label>Image URL</label></td>
-						<td><input type="text" id="imageUrl" name="imageUrl" value="${imageUrl}"
+						<td><input type="text" id="imageUrl" name="imageUrl" value="${product.imageUrl}"
 							size="21" required placeholder="Image URL" /><br></td>
 					</tr>
 
@@ -71,17 +71,20 @@
 
 					<tr>
 						<td><label>Product Cost</label></td>
-						<td><input type="text" id="productCost" name="productCost" value="${productCost}"
+						<td><input type="text" id="productCost" name="productCost" value="${product.productCost}"
 							required placeholder="0.00" /><br></td>
 					</tr>
 
 
 
 					<tr>
-						<td colspan="2" style="text-align: center;"><input
-							type="submit" value="Add" class="button" /> 
-							<a href="AddProductController" class="button"
-							style="margin-top: 5px; ">Cancel</a>
+						<td colspan="2" style="text-align: center;">
+							<button
+							type="submit" name="action" id="action" value="Submit" class="button">Submit</button>
+							<button
+							type="submit" name="action" id="action" value="Delete" class="button">Delete</button>
+							<button
+							type="submit" name="action" id="action" value="Cancel" class="button">Cancel</button> 
 							</td>
 					</tr>
 				</table>

@@ -41,23 +41,31 @@ public class AddProductController extends BaseController {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-			Product productCheck = ProductDAO.getProductByCode((String) request.getParameter(PRODUCT_CODE));
+            
+		    String newProductCode = (String) request.getParameter(PRODUCT_CODE);
+			Product productCheck = ProductDAO.getProductByCode(newProductCode);
 			if ((productCheck == null)) {
+				
 				String cost= request.getParameter(PRODUCT_COST);
-				double productCost = Double.parseDouble(cost);
-				Product product = new Product((String) request.getParameter(PRODUCT_CODE),
+				double productCost = 0;
+				try{
+					productCost = Double.parseDouble(cost);
+				} catch (NumberFormatException ne) {
+					request.setAttribute(MESSAGE, "Invalid cost");
+					request.getRequestDispatcher("Addadmin.jsp").forward(request, response);
+				}
+				Product product = new Product(newProductCode,
 						(String) request.getParameter(PRODUCT_NAME),
 						(String) request.getParameter(CATEGORY),
 						(String) request.getParameter(PRODUCT_DESC),
 						(String) request.getParameter(IMAGE_URL), productCost);
-				ProductDAO.saveProduct(product);
+				        ProductDAO.saveProduct(product);
 						response.sendRedirect("ProductsController");
-			}
+						return;
+			}  
 
 			else {
-				request.setAttribute(MESSAGE, "Product Exists");
-				
+				request.setAttribute(MESSAGE, "Product Exists");				
 				request.setAttribute("productCode",(String) request.getParameter(PRODUCT_CODE));
 				request.setAttribute("productName",(String) request.getParameter(PRODUCT_NAME));
 				request.setAttribute("description",(String) request.getParameter(PRODUCT_DESC));
@@ -66,7 +74,7 @@ public class AddProductController extends BaseController {
 				RequestDispatcher dispatcher = request
 						.getRequestDispatcher("Addadmin.jsp");
 				dispatcher.forward(request, response);
+				
 			}
 	}
-
 }
