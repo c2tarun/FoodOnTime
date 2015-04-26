@@ -16,48 +16,61 @@ import com.fot.model.Product;
  */
 @WebServlet("/UpdateProductController")
 public class UpdateProductController extends BaseController {
+
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UpdateProductController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public UpdateProductController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String productCode = request.getParameter(PRODUCT_CODE);
-		Product productToUpdate = ProductDAO.getProductByCode(productCode);
-		productToUpdate.setCategory(request.getParameter(CATEGORY));
-		productToUpdate.setDescription(request.getParameter(PRODUCT_DESC));
-		productToUpdate.setImageUrl(request.getParameter(IMAGE_URL));
-		double cost;
-		try{
-		cost = Double.parseDouble(request.getParameter(PRODUCT_COST));
-		}catch(NumberFormatException n) {
-			request.setAttribute(MESSAGE, "Invalid price");
-			cost = productToUpdate.getProductCost();
-			request.getRequestDispatcher("editProduct.jsp").forward(request, response);
-			return;
+		String action = request.getParameter(ACTION);
+		if ("Submit".equalsIgnoreCase(action)) {
+			String productCode = request.getParameter(PRODUCT_CODE);
+			Product productToUpdate = ProductDAO.getProductByCode(productCode);
+			productToUpdate.setCategory(request.getParameter(CATEGORY));
+			productToUpdate.setDescription(request.getParameter(PRODUCT_DESC));
+			productToUpdate.setImageUrl(request.getParameter(IMAGE_URL));
+			double cost;
+			try {
+				cost = Double.parseDouble(request.getParameter(PRODUCT_COST));
+			} catch (NumberFormatException n) {
+				request.setAttribute(MESSAGE, "Invalid price");
+				cost = productToUpdate.getProductCost();
+				request.getRequestDispatcher("editProduct.jsp").forward(
+						request, response);
+				return;
+			}
+			productToUpdate.setProductCost(cost);
+			productToUpdate.setProductName(request.getParameter(PRODUCT_NAME));
+			ProductDAO.updateProduct(productToUpdate);
+
+		} else if ("Cancel".equalsIgnoreCase(action)) {
+		} else if ("Delete".equalsIgnoreCase(action)) {
+			String productCode = request.getParameter(PRODUCT_CODE);
+			ProductDAO.deleteProductByCode(productCode);
 		}
-		productToUpdate.setProductCost(cost);
-		productToUpdate.setProductName(request.getParameter(PRODUCT_NAME));
-		ProductDAO.updateProduct(productToUpdate);
-		request.getRequestDispatcher(
-				"ProductsController?" + PRODUCT_CODE + "=")
+		request.getRequestDispatcher("ProductsController?" + PRODUCT_CODE + "=")
 				.forward(request, response);
 		return;
 	}

@@ -50,5 +50,15 @@ public final class ProductDAO extends BaseDAO {
 		session.close();
 	}
 	
+	public static void deleteProductByCode(String productCode) {
+		Session session = getSession();
+		Product product = new Product();
+		product.setProductCode(productCode);
+		session.beginTransaction();
+		session.delete(product);
+		session.getTransaction().commit();
+		session.close();
+	}
+	
 	
 }

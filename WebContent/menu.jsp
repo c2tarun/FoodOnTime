@@ -54,30 +54,9 @@
 							<b>${products.productName }</b>
 						</div>
 
-
-						<c:set var="stat" scope="session" value="admin" />
-						<c:if test="${currentUser.status eq stat}">
-
-							<a
-								href="UpdateProduct.jsp?Description=${products.description} &Name=${products.productName} &Logo=${products.imageUrl} &Price=${products.productCost} &Type=${products.category} &Code=${products.productCode}"
+							<a href="ProductsController?productCode=${products.productCode}"
 								id="logo"><img src="${products.imageUrl }" width="110"
 								height="100" /></a>
-
-						</c:if>
-
-
-
-						<c:set var="stat" scope="session" value="admin" />
-						<c:if test="${currentUser.status ne stat}">
-
-							<a
-								href="ProductsController?productCode=${products.productCode}"
-								id="logo"><img src="${products.imageUrl }" width="110"
-								height="100" /></a>
-
-						</c:if>
-
-
 
 						<div class="bottom_desc">
 							<p style="display: inline-block; font-size: 18px;">

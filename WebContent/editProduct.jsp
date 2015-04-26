@@ -78,10 +78,13 @@
 
 
 					<tr>
-						<td colspan="2" style="text-align: center;"><input
-							type="submit" value="Submit" class="button"/> 
-							<a href="UpdateProductController" class="button"
-							style="margin-top: 5px; ">Cancel</a>
+						<td colspan="2" style="text-align: center;">
+							<button
+							type="submit" name="action" id="action" value="Submit" class="button">Submit</button>
+							<button
+							type="submit" name="action" id="action" value="Delete" class="button">Delete</button>
+							<button
+							type="submit" name="action" id="action" value="Cancel" class="button">Cancel</button> 
 							</td>
 					</tr>
 				</table>
