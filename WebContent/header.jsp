@@ -24,6 +24,9 @@
 				<li id="login"><a href="loginSelection.jsp">Login</a></li>
 			</c:if>
 			<c:if test="${currentUser ne null}">
+
+			<li id="History"><a href = "OrderController">My Order</a></li>
+
             <li id="logout"><a href="logout.jsp">Logout</a></li>
             </c:if>
 

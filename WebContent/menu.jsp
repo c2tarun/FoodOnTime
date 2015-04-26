@@ -65,6 +65,7 @@
 							<form style="display: inline-block; float: right" method="get"
 								action="CartController" id="addToCartForm${productCount.count }">
 								<input type="hidden" style="display: inline-block; float: right"
+
 									name="productCode" id="productCode" value="${products.productCode }" /> <a
 									href="#" style="float: right;"
 									onClick="addToCart(${productCount.count})"><img
