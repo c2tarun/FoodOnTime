@@ -34,7 +34,7 @@
 				</p>
 			</h1>
 
-			<a href="CartController?ProductCode=${product.productCode }%>" class="button">Add To Cart</a>
+			<a href="CartController?productCode=${product.productCode }" class="button">Add To Cart</a>
 
 		</div>
 		<div class="spacer">&nbsp;</div>
