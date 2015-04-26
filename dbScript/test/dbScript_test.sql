@@ -55,7 +55,7 @@ CREATE TABLE `USER` (
 /*User table*/
 LOCK TABLES `USER` WRITE;
 /*!40000 ALTER TABLE `USER` DISABLE KEYS */;
-INSERT INTO `USER` VALUES ('admin','admin@gmail.com','admin','admin','admin','admin','admin'),('c2tarun','c2tarun@gmail.com','Tarun','Mall','password',NULL,NULL),('test','test@gmail.com','test_fname','test_lname','123456',NULL,NULL),('testUser','test@gmail.com','test','test','password',NULL,NULL),('testUser1','test@gmail.com','test','test','password','testNick','admin');
+INSERT INTO `USER` VALUES ('admin','admin@gmail.com','admin','admin','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8','admin','admin'),('c2tarun','c2tarun@gmail.com','Tarun','Mall','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',NULL,NULL),('test','test@gmail.com','test_fname','test_lname','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',NULL,NULL),('testUser','test@gmail.com','test','test','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',NULL,NULL),('testUser1','test@gmail.com','test','test','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8','testNick','admin');
 /*!40000 ALTER TABLE `USER` ENABLE KEYS */;
 UNLOCK TABLES;
 
