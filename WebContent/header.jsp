@@ -31,6 +31,7 @@
             </c:if>
 
 		</ul>
+		<c:if test="${currentUser.status ne 'admin'}">
 		<div class="image">
 			<a href="Cart.jsp"><img src="images/cart.png" width="30"
 				height="30" /> <span> <c:if
@@ -40,7 +41,7 @@
 						<b>0 items</b>
 					</c:if>
 			</span></a>
-		</div>
+		</div></c:if>
 	</div>
 	<div id="header2">
 		<div class="logo">Food On Time</div>
