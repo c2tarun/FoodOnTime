@@ -24,10 +24,9 @@
 				<li id="login"><a href="loginSelection.jsp">Login</a></li>
 			</c:if>
 			<c:if test="${currentUser ne null}">
-<<<<<<< .merge_file_a07288
+
 			<li id="History"><a href = "OrderController">My Order</a></li>
-=======
->>>>>>> .merge_file_a08804
+
             <li id="logout"><a href="logout.jsp">Logout</a></li>
             </c:if>
 
