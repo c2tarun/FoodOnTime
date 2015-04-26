@@ -11,23 +11,28 @@
 
 </head>
 
-<body onload="changeActiveMenu('History');">
+<body onload="changeActiveMenu('Cancel');">
 <jsp:include page="header.jsp"></jsp:include>
 <jsp:include page="sideBars.jsp"></jsp:include>
 <div id="Content">
   <h2> My Purchase History </h2>
-	<c:if test="${empty sessionScope.orderList }">
+	<c:if test="${empty requestScope.orderList }">
 		<center>
 			<h1>No Recent Orders Found To Cancel</h1>
 		</center>
 	</c:if>
 	
-	<c:if test="${fn:length(sessionScope.orderList)>0 }">
+	<c:if test="${fn:length(requestScope.orderList)>0 }">
 	<table style="background-color: #F6F6EE; border-collapse: collapse;" border="1">
 		<tr><th>Order Date</th><th>Products</th><th>Delivery Date</th><th>Total Cost($)</th><th>Cancel</th></tr>
 	    <c:forEach var="orders" items="${requestScope.orderList}" varStatus="orderCount">
 	    	<tr><td>${orders.orderDate }</td><td>${orders.products }</td>
-	    	<td>${orders.deliveryDate }</td><td>${orders.totalCost }</td><td><button>Cancel</button></td></tr>
+	    	<td>${orders.deliveryDate }</td><td>${orders.totalCost }</td><td>
+	    		<form action="OrderController?action=CancelOrder" method="post">
+	    			<input type = "hidden" value="${orders.orderId }" name="orderId" />
+	    			<input type="submit" value="Cancel" />
+	    		</form>
+	    	</td></tr>
 	    </c:forEach>
     </table>	
     </c:if>

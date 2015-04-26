@@ -35,15 +35,10 @@ public abstract class BaseController extends HttpServlet {
 	public static final String FIRST_NAME = "firstName";
 	public static final String LOGIN_TYPE = "loginType";
 	public static final String REGISTRATION = "registration";
-//<<<<<<< HEAD
 
 	public static final String ORDER_LIST = "orderList";
 
 	protected static final String ACTION = "action";
-
-/*=======
-	protected static final String ACTION = "action";
->>>>>>> d9bfbd2330e70f83d37f34c506e1a02a47799627*/
 	
 	@Override
 	protected abstract void doGet(HttpServletRequest req,

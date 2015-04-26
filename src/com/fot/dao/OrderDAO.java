@@ -9,6 +9,7 @@ import org.hibernate.Session;
 
 
 
+
 import com.fot.model.Order;
 import com.fot.model.Product;
 import com.fot.model.User;
@@ -58,5 +59,15 @@ public class OrderDAO extends BaseDAO{
 		List<Order> orders = query.list();
 		
 		return orders;
+	}
+	
+	public static void deleteOrder(int orderId) {
+		Session session = getSession();
+		Order order = new Order();
+		order.setOrderId(orderId);
+		session.beginTransaction();
+		session.delete(order);
+		session.getTransaction().commit();
+		session.close();
 	}
 }

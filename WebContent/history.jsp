@@ -16,13 +16,13 @@
 <jsp:include page="sideBars.jsp"></jsp:include>
 <div id="Content">
   <h2> My Purchase History </h2>
-	<c:if test="${empty sessionScope.orderList }">
+	<c:if test="${empty requestScope.orderList }">
 		<center>
 			<h1>No Purchase Made Till Now</h1>
 		</center>
 	</c:if>
 	
-	<c:if test="${fn:length(sessionScope.orderList)>0 }">
+	<c:if test="${fn:length(requestScope.orderList)>0 }">
 	<table style="background-color: #F6F6EE; border-collapse: collapse;" border="1">
 		<tr><th>Order Date</th><th>Products</th><th>Address</th><th>Delivery Date</th><th>Total Cost($)</th></tr>
 	    <c:forEach var="orders" items="${requestScope.orderList}" varStatus="orderCount">

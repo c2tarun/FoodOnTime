@@ -34,7 +34,7 @@ public class Order implements Serializable{
 	@Column(name = "products" , table = "user_order")
 	private String products;
 	
-	@Column(name = "status" , table = "user_order")
+	@Column
 	private String status;
 	
 	/*@Column(name = "productId" , table = "user_products")

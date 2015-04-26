@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS `user_order` (
   `products` varchar(1000),  
   `totalCost` double,
   PRIMARY KEY(orderId)  
-) 
+) ;
