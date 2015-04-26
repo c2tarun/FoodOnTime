@@ -43,6 +43,9 @@ public class Order implements Serializable{
 	@Column(name = "products" , table = "user_order")
 	private String products;
 	
+	@Column(name = "status" , table = "user_order")
+	private String status;
+	
 	/*@Column(name = "productId" , table = "user_products")
 	private String productId;
 	
@@ -55,11 +58,7 @@ public class Order implements Serializable{
 	@Column(name = "cost" , table = "user_products")
 	private double cost;*/
 
-	public Order(){
-		
-	}
-	
-	public Order(int orderId,String user,String address,String deliveryDate,String orderDate,double totalCost,String products){
+	public Order(int orderId,String user,String address,String deliveryDate,String orderDate,double totalCost,String products,String status){
 		super();
 		this.orderId = orderId;
 		this.user = user;
@@ -68,6 +67,7 @@ public class Order implements Serializable{
 		this.orderDate = orderDate; 
 		this.totalCost = totalCost;
 		this.products = products;
+		this.status = status;
 	}
 	
 	/*public Order(String productId,String productName,int quantity,double cost){
@@ -109,6 +109,20 @@ public class Order implements Serializable{
 	public void setCost(double cost) {
 		this.cost = cost;
 	}*/
+
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Order(){
+		
+	}
+	
 	
 	public String getProducts() {
 		return products;

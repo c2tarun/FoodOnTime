@@ -18,16 +18,16 @@
   <h2> My Purchase History </h2>
 	<c:if test="${empty sessionScope.orderList }">
 		<center>
-			<h1>No Purchase Made Till Now</h1>
+			<h1>No Recent Orders Found To Cancel</h1>
 		</center>
 	</c:if>
 	
 	<c:if test="${fn:length(sessionScope.orderList)>0 }">
 	<table style="background-color: #F6F6EE; border-collapse: collapse;" border="1">
-		<tr><th>Order Date</th><th>Products</th><th>Address</th><th>Delivery Date</th><th>Total Cost($)</th></tr>
+		<tr><th>Order Date</th><th>Products</th><th>Delivery Date</th><th>Total Cost($)</th><th>Cancel</th></tr>
 	    <c:forEach var="orders" items="${requestScope.orderList}" varStatus="orderCount">
-	    	<tr><td>${orders.orderDate }</td><td>${orders.products }</td><td>${orders.address }</td>
-	    	<td>${orders.deliveryDate }</td><td>${orders.totalCost }</td></tr>
+	    	<tr><td>${orders.orderDate }</td><td>${orders.products }</td>
+	    	<td>${orders.deliveryDate }</td><td>${orders.totalCost }</td><td><button>Cancel</button></td></tr>
 	    </c:forEach>
     </table>	
     </c:if>

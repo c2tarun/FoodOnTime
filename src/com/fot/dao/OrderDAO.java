@@ -49,4 +49,14 @@ public class OrderDAO extends BaseDAO{
 		
 		return orders;
 	}
+	
+	public static List<Order> cancelOrders(String user,String status) {
+		Session session = getSession();
+		Query query = session.createQuery("from Order where user= :user and status= :status"); 
+		query.setString("user", user);
+		query.setString("status", status);
+		List<Order> orders = query.list();
+		
+		return orders;
+	}
 }

@@ -19,15 +19,16 @@
 		<ul id="navigation">
 			<li id="index"><a href="index.jsp">Home</a></li>
 			<li id="menu1"><a href="ProductsController">Menu</a></li>
-			<li><a href="#">Contact</a></li>
+			
 			<c:if test="${currentUser eq null}">
 				<li id="login"><a href="loginSelection.jsp">Login</a></li>
 			</c:if>
 			<c:if test="${currentUser ne null}">
-
-			<li id="History"><a href = "OrderController">My Order</a></li>
-
-            <li id="logout"><a href="logout.jsp">Logout</a></li>
+				<c:if test="${currentUser.status ne 'admin' }">
+					<li id="Cancel"><a href = "OrderController?page=Cancel">Cancel</a></li>
+					<li id="History"><a href = "OrderController?page=History">My Order</a></li>
+            		<li id="logout"><a href="logout.jsp">Logout</a></li>
+            	</c:if>
             </c:if>
 
 		</ul>

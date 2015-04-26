@@ -42,14 +42,27 @@ public class OrderController extends BaseController {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute(CURRENT_USER);
-		request.setAttribute(ORDER_LIST, OrderDAO.getOrders(user.getUsername()));
+		if(("History").equals(request.getParameter("page"))){
+			HttpSession session = request.getSession();
+			User user = (User) session.getAttribute(CURRENT_USER);
+			request.setAttribute(ORDER_LIST, OrderDAO.getOrders(user.getUsername()));
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("history.jsp");
+			dispatcher.forward(request, response);
+	
+			return;
+		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("history.jsp");
-		dispatcher.forward(request, response);
-
-		return;
+		else{
+			HttpSession session = request.getSession();
+			User user = (User) session.getAttribute(CURRENT_USER);
+			request.setAttribute(ORDER_LIST, OrderDAO.cancelOrders(user.getUsername(),"Order Placed"));
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("cancel.jsp");
+			dispatcher.forward(request, response);
+	
+			return;
+		}
 	}
 
 	/**
@@ -60,7 +73,7 @@ public class OrderController extends BaseController {
 			IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		String apt, zip, streetName, city, state, time, today;
+		String apt, zip, streetName, city, state, time, today,status;
 		int orderId;
 		apt = request.getParameter("apt");
 		city = request.getParameter("city");
@@ -69,6 +82,7 @@ public class OrderController extends BaseController {
 		streetName = request.getParameter("streetName");
 		time = request.getParameter("deliveryTime");
 		today = request.getParameter("orderDate");
+		status = "Order Placed";
 		
 		Address address = new Address(apt,streetName,city,state,zip);
 		String user_address = address.getFullAddress();
@@ -94,7 +108,7 @@ public class OrderController extends BaseController {
 		}
 		Product myProduct = myCart.get(i).getProduct();
 		products +=myProduct.getProductName()+"  -  "+ myCart.get(i).getQuantity();
-		Order order = new Order(orderId,user.getUsername(),user_address,time,today,totalCost,products);
+		Order order = new Order(orderId,user.getUsername(),user_address,time,today,totalCost,products,status);
 		OrderDAO.saveOrder(order);	
 		
 		session.setAttribute("apt", apt);
