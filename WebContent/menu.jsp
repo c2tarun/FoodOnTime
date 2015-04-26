@@ -25,8 +25,13 @@
 		<h2>Select Your Menu!!!!</h2>
 		<div class="content-body">
 			<h1 style="display: inline-block">Filter By Category</h1>
-			<a href="Addadmin.jsp" class="button"
-				style="margin-top: 20px; float: right;">Add</a>
+			
+			<c:set var="stat" scope="session" value="admin" />
+			<c:if test="${currentUser.status eq stat}">
+				<a href="Addadmin.jsp" class="button"
+					style="margin-top: 20px; float: right;">Add Product</a>
+
+			</c:if>
 
 
 			<form name='test'>
@@ -50,7 +55,7 @@
 						</div>
 
 
-						<c:set var="stat" scope="session" value="Admin" />
+						<c:set var="stat" scope="session" value="admin" />
 						<c:if test="${currentUser.status eq stat}">
 
 							<a
@@ -62,7 +67,7 @@
 
 
 
-						<c:set var="stat" scope="session" value="Admin" />
+						<c:set var="stat" scope="session" value="admin" />
 						<c:if test="${currentUser.status ne stat}">
 
 							<a

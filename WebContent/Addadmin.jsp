@@ -28,7 +28,7 @@
 					<tr>
 						<td style="width: 50%;"><label for="productCode">Product
 								Code</label></td>
-						<td><input type="text" id="productCode" name="ProductCode" value="${productCode}"
+						<td><input type="text" id="productCode" name="productCode" value="${productCode}"
 							maxlength="10" required placeholder="Minimum 4 Characters(PRXX) " /></td>
 
 					</tr>

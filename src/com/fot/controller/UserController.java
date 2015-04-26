@@ -56,7 +56,7 @@ public class UserController extends BaseController {
 						(String) request.getParameter(PASSWORD),
 						(String) request.getParameter(FIRST_NAME),
 						(String) request.getParameter(LAST_NAME),
-						(String) request.getParameter(EMAIL_ID), null,null);
+						(String) request.getParameter(EMAIL_ID), null);
 				UserDAO.saveUser(user);
 				request.setAttribute(MESSAGE,
 						"Registration Complete. Please Login");
