@@ -96,11 +96,15 @@ public class UserController extends BaseController {
 					&& password.equals(enteredPassword)) {
 
 				session.setAttribute(CURRENT_USER, userCheck);
-
+				User currentUser = (User) session.getAttribute(CURRENT_USER);
 				userLogValue = (String) session.getAttribute("userLog");
 				if (userLogValue == null) {
 					pageFwd = "index.jsp";
-				} else if (userLogValue.equals("true")) {
+				}
+				else if  (currentUser!=null && "Admin".equalsIgnoreCase(currentUser.getStatus())) { 
+					pageFwd = "index.jsp";
+				}
+				else if (userLogValue.equals("true")) {
 					pageFwd = "checkout.jsp";
 				}
 
