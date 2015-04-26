@@ -1,10 +1,16 @@
 package com.fot.dao;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 
+
+
+
 import com.fot.model.Order;
+import com.fot.model.Product;
 import com.fot.model.User;
 
 public class OrderDAO extends BaseDAO{
@@ -33,5 +39,14 @@ public class OrderDAO extends BaseDAO{
 		
 		else return (int) query.uniqueResult();
 
+	}
+
+	public static List<Order> getOrders(String user) {
+		Session session = getSession();
+		Query query = session.createQuery("from Order where user= :user"); 
+		query.setString("user", user);
+		List<Order> orders = query.list();
+		
+		return orders;
 	}
 }
