@@ -27,8 +27,6 @@ public class OrderDAO extends BaseDAO{
 		Session session = getSession();
 		session.beginTransaction();
 		
-		//DetachedCriteria maxId = DetachedCriteria.forClass(Order.class).setProjection( Projections.max("order_id") );
-		
 		Query count = session.createQuery("Select COUNT(orderId) from Order");
 		
 		Query query = session.createQuery("Select MAX(orderId) from Order");

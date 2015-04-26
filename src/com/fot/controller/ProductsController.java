@@ -33,7 +33,7 @@ public class ProductsController extends BaseController {
 			request.setAttribute(PRODUCT,
 					ProductDAO.getProductByCode(productCode));
 			User currentUser = (User) session.getAttribute(CURRENT_USER);
-			if ("Admin".equalsIgnoreCase(currentUser.getStatus())) {
+			if (currentUser!=null && "Admin".equalsIgnoreCase(currentUser.getStatus())) {
 				request.getRequestDispatcher("editProduct.jsp").forward(
 						request, response);
 			} else {

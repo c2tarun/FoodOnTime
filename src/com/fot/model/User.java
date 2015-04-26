@@ -1,10 +1,14 @@
 package com.fot.model;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fot.util.PasswordUtil;
 
 @Entity
 @Table(name = "USER")
@@ -53,7 +57,7 @@ public class User implements Serializable{
 			String lastName, String emailID, String nickname) {
 		super();
 		this.username = userName;
-		this.password = password;
+		this.password = PasswordUtil.hashPassword(password);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailID = emailID;
@@ -83,7 +87,7 @@ public class User implements Serializable{
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = PasswordUtil.hashPassword(password);
 	}
 
 	public String getFirstName() {

@@ -33,8 +33,8 @@ public class ShoppingCart implements Serializable {
 		if (cartItems != null) {
 			for (CartItem item : cartItems) {
 
-				if (item.getProduct().getProductCode() == product
-						.getProductCode()) {
+				if (item.getProduct().getProductCode().equals(product
+						.getProductCode())) {
 					newItem = false;
 					item.incrementQuantity();
 					break;

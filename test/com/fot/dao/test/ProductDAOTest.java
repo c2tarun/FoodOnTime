@@ -29,9 +29,4 @@ public class ProductDAOTest {
 		Assert.assertTrue(products.get(0).getCategory().equals("bakery"));
 	}
 	
-//	@Test
-//	public void testDontUseThisMethod() {
-//		ProductDAO.dontUseThisMethod();
-//	}
-
 }

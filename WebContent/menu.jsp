@@ -25,7 +25,7 @@
 		<h2>Select Your Menu!!!!</h2>
 		<div class="content-body">
 			<h1 style="display: inline-block">Filter By Category</h1>
-			
+
 			<c:set var="stat" scope="session" value="admin" />
 			<c:if test="${currentUser.status eq stat}">
 				<a href="Addadmin.jsp" class="button"
@@ -54,9 +54,9 @@
 							<b>${products.productName }</b>
 						</div>
 
-							<a href="ProductsController?productCode=${products.productCode}"
-								id="logo"><img src="${products.imageUrl }" width="110"
-								height="100" /></a>
+						<a href="ProductsController?productCode=${products.productCode}"
+							id="logo"><img src="${products.imageUrl }" width="110"
+							height="100" /></a>
 
 						<div class="bottom_desc">
 							<p style="display: inline-block; font-size: 18px;">
@@ -65,12 +65,17 @@
 							<form style="display: inline-block; float: right" method="get"
 								action="CartController" id="addToCartForm${productCount.count }">
 								<input type="hidden" style="display: inline-block; float: right"
+									name="productCode" id="productCode"
+									value="${products.productCode }" />
+								<c:if test="${currentUser.status ne 'admin'}">
+									<a href="#" style="float: right;"
+										onClick="addToCart(${productCount.count})"> <img
+										src="images/cart.png" width="20" height="20" /></a>
+									<input type="hidden" name="ProductCategory"
+										value="${ProductCategory}" />
+								</c:if>
 
-									name="productCode" id="productCode" value="${products.productCode }" /> <a
-									href="#" style="float: right;"
-									onClick="addToCart(${productCount.count})"><img
-									src="images/cart.png" width="20" height="20" /></a> <input
-									type="hidden" name="ProductCategory" value="${ProductCategory}" />
+
 							</form>
 						</div>
 					</div>

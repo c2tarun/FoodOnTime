@@ -22,10 +22,7 @@ public class BaseDAO {
 			Context env = (Context) new InitialContext().lookup("java:comp/env");
 			configFile = (String) env.lookup("dbconfig");
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
 			configFile = "hibernate_test.cfg.xml";
-			
 		}
 		System.out.println("Got configFile ************ " + configFile);
 		configuration = new Configuration().configure();
