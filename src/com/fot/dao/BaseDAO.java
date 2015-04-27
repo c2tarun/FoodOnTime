@@ -25,7 +25,7 @@ public class BaseDAO {
 			configFile = "hibernate_test.cfg.xml";
 		}
 		System.out.println("Got configFile ************ " + configFile);
-		configuration = new Configuration().configure();
+		configuration = new Configuration().configure(configFile);
 		serviceRegistery = new StandardServiceRegistryBuilder().applySettings(
 				configuration.getProperties()).build();
 		sessionFactory = configuration.configure().buildSessionFactory(
