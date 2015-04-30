@@ -12,11 +12,18 @@ $(document).ready(function() {
 				required:true,
 				minlength: 5
 			},
+			addr1 : "required",
+			billCity : "required",
+			billState : "required",
+			billZip : {
+				required:true,
+				minlength: 5
+			},
 			cardName : "required",
 			expiryDate : "required",
 			cardNumber : {
 				required : true,
-				minlength : 12
+				minlength : 16
 			},
 			cvv : {
 				required : true,
@@ -36,11 +43,18 @@ $(document).ready(function() {
 				required: "Provide a Zip Code",
 				minlength: "Zip Code must contain 5 digits"
 			},
+			addr1 : "Provide an Address",
+			billCity :  "Provide a City",
+			billState : "Provide a State",
+			billZip : {
+				required:"Provide a Zip Code",
+				minlength: "Zip Code must contain 5 digits"
+			},
 			cardName : "Provide a Card Name",
 			expiryDate : "Provide an Expiry Date",
 			cardNumber : {
 				required : "Provide a Card Number",
-				minlength : "Card Number needs to be 12 characters long"
+				minlength : "Card Number needs to be 16 characters long"
 			},
 			cvv : {
 				required : "Provide a Cvv",

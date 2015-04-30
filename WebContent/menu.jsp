@@ -37,8 +37,8 @@
 			<form name='test'>
 				<select id="select_product" style="margin-left: 10px;"
 					name="ProductCategory"><option>All</option>
-					<option>bakery</option>
-					<option>breakfast</option>
+					<option>Bakery</option>
+					<option>Breakfast</option>
 				</select> <a href="ProductsController"><button id="submitCategory"
 						onclick="clearList()" value="select">Submit</button></a>
 

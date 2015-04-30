@@ -2,7 +2,7 @@
  * 
  */
 $(document).ready(function(){
-$("#cvv,#cardNumber,#zipCode,#productCost").on("keypress",function(evt){
+$("#cvv,#cardNumber,#zipCode,#productCost,#billZip").on("keypress",function(evt){
 	
 	evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -12,7 +12,7 @@ $("#cvv,#cardNumber,#zipCode,#productCost").on("keypress",function(evt){
     return true;
 });
 
-$("#streetName,#city,#state,#cardName").on("keypress",function(evt){
+$("#streetName,#city,#state,#cardName,#billCity,#billState").on("keypress",function(evt){
 	
 	evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;

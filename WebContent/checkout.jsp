@@ -73,6 +73,54 @@
 							required placeholder="Your zip code" /><br></td>
 					</tr>
 					<tr>
+					
+					<tr>
+						<td><h3>Enter Billing  Details</h3></td>
+					</tr>
+					<tr>
+						<td style="width: 50%;"><label for="addr1">Address Line1
+								</label></td>
+						<td><input type="text" id="addr1" name="addr1" 
+							required placeholder="Your Address" /></td>
+
+					</tr>
+
+					<tr>
+						<td><label for="addr2">Address Line2</label></td>
+						<td><input type="text" id="addr2" name="addr2"
+							 placeholder="Your Address" /><br></td>
+					</tr>
+
+
+
+					<tr>
+						<td><label for="billCity">City</label></td>
+						<td><input type="text" id="billCity" name="billCity" required
+							placeholder="Your city" /><br></td>
+					</tr>
+
+
+
+					<tr>
+						<td><label for="billState">State</label></td>
+						<td><input type="text" id="billState" name="billState" size="21"
+							required placeholder="Your State" /><br></td>
+					</tr>
+
+
+					<tr>
+						<td><label>Zip Code</label></td>
+						<td><input type="text" id="billZip" name="billZip" maxlength="5"  size="21"
+							required placeholder="Your zip code" /><br></td>
+					</tr>
+					<tr>
+					
+					
+					
+					
+					
+					
+					
 						<td><h3>Enter Card Details</h3></td>
 					</tr>
 					<tr>
@@ -86,7 +134,7 @@
 					<tr>
 						<td><label for="cardNumber">Card Number</label></td>
 						<td><input type="text" id="cardNumber" name="cardNumber"
-							maxlength="12" required placeholder="Your card number" /><br></td>
+							maxlength="16" required placeholder="Your card number" /><br></td>
 					</tr>
 					<tr>
 						<td><label for="expiryDate">Expiry date</label></td>
