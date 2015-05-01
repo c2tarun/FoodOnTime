@@ -9,9 +9,10 @@
 <title>Food On Time</title>
 <link rel="shortcut icon" href="favicon.ico" />
 <script type="text/javascript" src="js/Date.js"></script>
+
 </head>
 
-<body onload="changeActiveMenu('logout');getDate();">
+<body onload="changeActiveMenu('logout');getDate();validateDate();">
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<jsp:include page="sideBars.jsp"></jsp:include>
@@ -30,7 +31,10 @@
 					
 					<tr>
 						<td><label>Date & Time</label></td>
-						<td><input type="datetime-local" id="deliveryTime" name="deliveryTime" required/></td>
+						<td><input type="date" id="deliveryDate" name="deliveryDate" required style="width: 40%;"
+								 onBlur="checkDate()" onFocus="clearTime()"/><br/><br/>
+						<input type="time" id="deliveryTime" name="deliveryTime" required onChange="validateTime()"
+								 style="width: 30%;"/></td>
 					</tr>
 					
 					<tr>

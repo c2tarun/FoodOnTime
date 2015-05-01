@@ -49,6 +49,23 @@ public class OrderDAO extends BaseDAO{
 		return orders;
 	}
 	
+	public static Order getOrderById(int orderId) {
+		Session session = getSession();
+		Query query = session.createQuery("from Order where orderId= :orderId"); 
+		query.setInteger("orderId", orderId);
+				
+		return (Order) query.uniqueResult();
+	}
+	
+	public static List<Order> getAllOrders(String status) {
+		Session session = getSession();
+		Query query = session.createQuery("from Order where status= :status"); 
+		query.setString("status", status);
+		List<Order> orders = query.list();
+		
+		return orders;
+	}
+	
 	public static List<Order> cancelOrders(String user,String status) {
 		Session session = getSession();
 		Query query = session.createQuery("from Order where user= :user and status= :status"); 
@@ -65,6 +82,14 @@ public class OrderDAO extends BaseDAO{
 		order.setOrderId(orderId);
 		session.beginTransaction();
 		session.delete(order);
+		session.getTransaction().commit();
+		session.close();
+	}
+	
+	public static void acceptOrder(Order order) {
+		Session session = getSession();
+		session.beginTransaction();
+		session.update(order);
 		session.getTransaction().commit();
 		session.close();
 	}

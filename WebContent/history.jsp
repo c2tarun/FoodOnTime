@@ -16,6 +16,7 @@
 <jsp:include page="sideBars.jsp"></jsp:include>
 <div id="Content">
   <h2> My Purchase History </h2>
+  	<div class="content-body">
 	<c:if test="${empty requestScope.orderList }">
 		<center>
 			<h1>No Purchase Made Till Now</h1>
@@ -23,14 +24,15 @@
 	</c:if>
 	
 	<c:if test="${fn:length(requestScope.orderList)>0 }">
-	<table style="background-color: #F6F6EE; border-collapse: collapse;" border="1">
-		<tr><th>Order Date</th><th>Products</th><th>Address</th><th>Delivery Date</th><th>Total Cost($)</th></tr>
+	<table style="background-color: #F6F6EE; border-collapse: collapse; width: 102%;margin-left:-2%;" border="1">
+		<tr><th>Order Date</th><th>Products</th><th>Address</th><th>Delivery Date</th><th>Cost($)</th></tr>
 	    <c:forEach var="orders" items="${requestScope.orderList}" varStatus="orderCount">
 	    	<tr><td>${orders.orderDate }</td><td>${orders.products }</td><td>${orders.address }</td>
 	    	<td>${orders.deliveryDate }</td><td>${orders.totalCost }</td></tr>
 	    </c:forEach>
     </table>	
     </c:if>
+    </div>
 	<h1>&nbsp;</h1>
 </div>
 <div class="spacer">&nbsp;</div>

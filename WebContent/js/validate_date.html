@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script type="text/javascript" src="jquery-1.9.0.min.js"></script>
+
+<script type="text/javascript">
+	$(window).load(function(){
+		var d=new Date();
+		var month = ((d.getMonth()+1)>9)?(d.getMonth()+1):"0"+(d.getMonth()+1);
+		var day = ((d.getDate())>9)?(d.getDate()):"0"+(d.getDate());
+		
+		$("#datePicker").prop("min",d.getFullYear()+"-"+month+"-"+day);
+		
+		d.setDate(d.getDate()+7);
+		var max_month = ((d.getMonth()+1)>9)?(d.getMonth()+1):"0"+(d.getMonth()+1);
+		var max_day = ((d.getDate())>9)?(d.getDate()):"0"+(d.getDate());
+		
+		
+		$("#datePicker").prop("max",d.getFullYear()+"-"+max_month+"-"+max_day);	
+		
+		$("#timePicker").change(function(){
+			if(($(this).val().split(" ")[0]>"23:00") || ($(this).val().split(" ")[0]<"06:00")){
+				$(this).val("");
+			}
+			
+			else if($("#datePicker").val()){
+				alert($("#datePicker").val().split("/")[1]);
+				var date = new Date();
+				if($("#datePicker").val().split("/")[1] == date.getDate() && ($(this).val().split(":")[0]<date.getHours() || $(this).val().split(":")[0]<date.getHours()+1))
+					$(this).val("");	
+			}
+		});
+	});
+	
+	function checkDate(){
+		var d = new Date();
+		d.setDate(d.getDate()+7);
+		var month = ((d.getMonth()+1)>9)?(d.getMonth()+1):"0"+(d.getMonth()+1);
+		var day = ((d.getDate())>9)?(d.getDate()):"0"+(d.getDate());
+		
+		if($("#datePicker").val()>d.getFullYear()+"-"+month+"-"+day)
+			$("#datePicker").val("");
+	}
+</script>
+</head>
+
+<body>
+<input type="date" id="datePicker" onBlur="checkDate()"/>
+<input type="time" id="timePicker" />
+</body>
+</html>

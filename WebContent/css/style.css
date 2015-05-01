@@ -3,7 +3,7 @@ body {
 	padding: 0px;
 	font-family: verdana, arial, helvetica, sans-serif;
 	color: #333;
-	background: url(../images/header-bg.png) top center repeat-x !important;
+	width: 100%;
 }
 
 h1 {
@@ -185,16 +185,18 @@ body>#Header2 {
 }
 
 #Content {
-	display: block;
+	/*display: block;*/
 	background-color: #FFFFFF;
-	margin-top: 20px;
-	margin-right: 272px;
+	margin-top: 2%;
+	/*margin-right: 272px;*/
 	margin-bottom: 20px;
-	margin-left: 275px;
-	padding-right: 10%;
+	/*margin-left: 275px;*/
+	
+	
 	padding-bottom: 10px;
-	padding-left: 10px;
+
 	width: 60%;
+	float: left;
 }
 
 #Content1 {
@@ -216,41 +218,35 @@ body>#Header2 {
 
 #Menu {
 	height: 900px;
-	position: absolute;
-	top: 82px;
-	left: 20px;
-	width: 210px;
-	line-height: 25px;
-	width: 210px;
-	margin-top: 86px;
-	margin-left: -10px;
+	/*position: absolute;*/
+	
+	float: left;
+	width: 20%;
+	line-height: 25px;	
 	font-size: 12px;
 	color: #339900;
 	padding-top: 15px;
 	padding-right: 10px;
-	padding-left: 10px;
+	
 }
 
 #Menu_Right {
-	position: relative;
-	display: block;
+	/*position: relative;
+	display: block;*/
 	float: right;
-	left: 20px;
-	margin-right: 20px;
-	width: 210px;
+
+	
+	
 	line-height: 25px;
-	width: 210px;
+	width: 17%;
 	font-size: 12px;
 	color: #339900;
-	margin-top: 10px;
+	
 	padding-top: 15px;
-	padding-right: 10px;
-	padding-left: 10px;
+
 }
 /* Again, "be nice to Opera 5". */
-body>#Menu {
-	width: 210px;
-}
+
 
 #tabs {
 	font-size: 93%;

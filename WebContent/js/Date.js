@@ -10,3 +10,49 @@ function getDate(){
 	
 	$("#orderDate").val(output);
 }
+
+function validateDate(){
+		
+		var d=new Date();
+		var month = ((d.getMonth()+1)>9)?(d.getMonth()+1):"0"+(d.getMonth()+1);
+		var day = ((d.getDate())>9)?(d.getDate()):"0"+(d.getDate());
+		
+		$("#deliveryDate").prop("min",d.getFullYear()+"-"+month+"-"+day);
+		
+		d.setDate(d.getDate()+7);
+		var max_month = ((d.getMonth()+1)>9)?(d.getMonth()+1):"0"+(d.getMonth()+1);
+		var max_day = ((d.getDate())>9)?(d.getDate()):"0"+(d.getDate());
+		
+		$("#deliveryDate").prop("max",d.getFullYear()+"-"+max_month+"-"+max_day);	
+		
+}
+
+function checkDate(){
+	var d = new Date();
+	d.setDate(d.getDate()+7);
+	var month = ((d.getMonth()+1)>9)?(d.getMonth()+1):"0"+(d.getMonth()+1);
+	var day = ((d.getDate())>9)?(d.getDate()):"0"+(d.getDate());
+	
+	if($("#deliveryDate").val()>d.getFullYear()+"-"+month+"-"+day)
+		$("#deliveryDate").val("");
+}
+
+function validateTime(){
+	var date=new Date();
+	
+	if(($("#deliveryTime").val().split(" ")[0]>"23:00") || ($("#deliveryTime").val().split(" ")[0]<"06:00"))
+		$("#deliveryTime").val("");	
+	
+	else if($("#deliveryDate").val()){
+		
+		if($("#deliveryDate").val().split("-")[2] == date.getDate() &&
+				($("#deliveryTime").val().split(":")[0]<date.getHours() || $("#deliveryTime").val().split(" ")[0]<((date.getHours()+1)+":"+date.getMinutes())))
+					$("#deliveryTime").val("");	
+	}
+
+	
+}
+
+function clearTime(){
+	$("#deliveryTime").val("");
+}

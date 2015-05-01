@@ -10,14 +10,14 @@
 <body>
 <div id="Menu">
 	
-    <img src="images/fastfood-1.png" style="width: 250px; height: 400px; margin-left: -20px;"/>
-    <img src="images/food1.jpg" style="width: 210px; height: 200px;"/>
-	<img src="images/food2.jpg" style="width: 210px; height: 200px;"/>
+    <img src="images/fastfood-1.png" style="width: 100%; height: 400px; margin-left: -20px;"/>
+    <img src="images/food1.jpg" style="width: 100%; height: 200px;"/>
+	<img src="images/food2.jpg" style="width: 100%; height: 200px;"/>
 </div>
 <div id="Menu_Right">
-	<img src="images/fastfood.jpg" style="width: 250px; height: 400px;"/>
-    <img src="images/food1.jpg" style="width: 210px; height: 200px;"/>
-    <img src="images/food2.jpg" style="width: 210px; height: 200px;"/>
+	<img src="images/fastfood.jpg" style="width: 100%; height: 400px;"/>
+    <img src="images/food1.jpg" style="width: 100%; height: 200px;"/>
+    <img src="images/food2.jpg" style="width: 100%; height: 200px;"/>
 </div>
 </body>
 </html>

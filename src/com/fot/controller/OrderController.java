@@ -42,6 +42,17 @@ public class OrderController extends BaseController {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		if(("Admin").equals(request.getParameter("page"))){
+			
+			request.setAttribute(ORDER_LIST, OrderDAO.getAllOrders("Order Placed"));
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("AdminOrders.jsp");
+			dispatcher.forward(request, response);
+	
+			return;
+			
+		}
+		
 		if(("History").equals(request.getParameter("page"))){
 			HttpSession session = request.getSession();
 			User user = (User) session.getAttribute(CURRENT_USER);
@@ -73,7 +84,7 @@ public class OrderController extends BaseController {
 			IOException {
 		HttpSession session = request.getSession();
 		if(("CancelOrder").equals(request.getParameter("action"))){
-			System.out.println(request.getParameter("orderId"));
+			
 			int orderId = Integer.parseInt(request.getParameter("orderId"));
 			OrderDAO.deleteOrder(orderId);
 			
@@ -81,6 +92,21 @@ public class OrderController extends BaseController {
 			request.setAttribute(ORDER_LIST, OrderDAO.cancelOrders(user.getUsername(),"Order Placed"));
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("cancel.jsp");
+			dispatcher.forward(request, response);
+	
+			return;
+		}
+		
+		else if(("AcceptOrder").equals(request.getParameter("action"))){
+			int orderId = Integer.parseInt(request.getParameter("acceptOrderId"));
+			
+			Order orderToUpdate = OrderDAO.getOrderById(orderId);
+			orderToUpdate.setStatus("Order Dispatched");
+			OrderDAO.acceptOrder(orderToUpdate);
+			
+			request.setAttribute(ORDER_LIST, OrderDAO.getAllOrders("Order Placed"));
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("AdminOrders.jsp");
 			dispatcher.forward(request, response);
 	
 			return;
@@ -94,7 +120,7 @@ public class OrderController extends BaseController {
 			state = request.getParameter("state");
 			zip = request.getParameter("zipCode");
 			streetName = request.getParameter("streetName");
-			time = request.getParameter("deliveryTime");
+			time = request.getParameter("deliveryDate")+" "+request.getParameter("deliveryTime");
 			today = request.getParameter("orderDate");
 			status = "Order Placed";
 			

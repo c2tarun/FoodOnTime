@@ -11,27 +11,27 @@
 
 </head>
 
-<body onload="changeActiveMenu('Cancel');">
+<body onload="changeActiveMenu('Admin');">
 <jsp:include page="header.jsp"></jsp:include>
 <jsp:include page="sideBars.jsp"></jsp:include>
 <div id="Content">
-  <h2> My Purchase History </h2>
+  <h2> Current Orders </h2>
   	<div class="content-body">
 	<c:if test="${empty requestScope.orderList }">
 		<center>
-			<h1>No Recent Orders Found To Cancel</h1>
+			<h1>No Orders Right Now</h1>
 		</center>
 	</c:if>
 	
 	<c:if test="${fn:length(requestScope.orderList)>0 }">
 	<table style="background-color: #F6F6EE; border-collapse: collapse; width: 102%;margin-left:-2%;" border="1">
-		<tr><th>Order Date</th><th>Products</th><th>Delivery Date</th><th>Cost($)</th><th>Cancel</th></tr>
+		<tr><th>Products</th><th>Address</th><th>Delivery Date</th><th>Cost($)</th><th></th></tr>
 	    <c:forEach var="orders" items="${requestScope.orderList}" varStatus="orderCount">
-	    	<tr><td>${orders.orderDate }</td><td>${orders.products }</td>
-	    	<td>${orders.deliveryDate }</td><td>${orders.totalCost }</td><td>
-	    		<form action="OrderController?action=CancelOrder" method="post">
-	    			<input type = "hidden" value="${orders.orderId }" name="orderId" />
-	    			<input type="submit" value="Cancel" />
+	    	<tr><td>${orders.products }</td><td>${orders.address }</td>
+	    	<td>${orders.deliveryDate }</td><td>${orders.totalCost }</td>
+	    	<td><form method="post" action="OrderController?action=AcceptOrder">
+	    			<input type="hidden" value="${orders.orderId }" name="acceptOrderId" />
+	    			<input type="submit" value="Dispatch" />
 	    		</form>
 	    	</td></tr>
 	    </c:forEach>
