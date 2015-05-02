@@ -30,20 +30,20 @@
 					<tr>
 						<td style="width: 50%;"><label for="username">UserName</label></td>
 						<td><input type="text" id="username" name="username"
-							maxlength="10" required placeholder="Minimum 4 Characters " /></td>
+							maxlength="10" required placeholder="Minimum 4 Characters " value="${userName}"/></td>
 
 					</tr>
 
 					<tr>
 						<td><label for="first_name">FirstName</label></td>
-						<td><input type="text" id="first_name" name="firstName" required placeholder="Your First Name" /><br></td>
+						<td><input type="text" id="first_name" name="firstName" required placeholder="Your First Name" value="${firstName}"/><br></td>
 					</tr>
 
 
 
 					<tr>
 						<td><label for="last_name">LastName</label></td>
-						<td><input type="text" id="last_name" name="lastName" required placeholder="Your Last Name" /><br></td>
+						<td><input type="text" id="last_name" name="lastName" required placeholder="Your Last Name" value="${lastName}"/><br></td>
 					</tr>
 
 
@@ -66,15 +66,16 @@
 					<tr>
 						<td><label>Email</label></td>
 						<td><input type="email" id="email_id" name="emailID" required 
-						placeholder="(eg)sample@gmail.com" /><br></td>
+						placeholder="(eg)sample@gmail.com" value="${emailId}"/><br></td>
 					</tr>
 
 
 
 					<!-- <input type="submit" value="SUBMIT" onclick="return confirm('Are you sure?')" onclick="javascript:validate_textbox1(this.form); /> -->
 					<tr>
-						<td colspan="2" style="text-align: center;"><input type="submit" value="SUBMIT" class="button"/> <input
-							type="reset" value="RESET" class="button" /></td>
+						<td colspan="2" style="text-align: center;"><input type="submit" value="SUBMIT" class="button"/> <a href="loginSelection.jsp" class="button"
+							style="margin-top: 5px; ">Cancel</a>
+							</td>
 					</tr>
 				</table>
 			</form>
