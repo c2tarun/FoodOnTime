@@ -70,6 +70,10 @@ public class UserController extends BaseController {
 
 			else {
 				request.setAttribute(MESSAGE, "User Exists");
+				request.setAttribute("userName",(String) request.getParameter(USERNAME));
+				request.setAttribute("firstName",(String) request.getParameter(FIRST_NAME));
+				request.setAttribute("lastName",(String) request.getParameter(LAST_NAME));
+				request.setAttribute("emailId",(String) request.getParameter(EMAIL_ID));
 				RequestDispatcher dispatcher = request
 						.getRequestDispatcher("registeration.jsp");
 				dispatcher.forward(request, response);
