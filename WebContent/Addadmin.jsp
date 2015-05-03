@@ -81,7 +81,7 @@
 						<td colspan="2" style="text-align: center;"><input
 							type="submit" value="Add" class="button" /> 
 							<a href="AddProductController" class="button"
-							style="margin-top: 5px; ">Cancel</a>
+							style="margin-top: 5px;color:black; ">Cancel</a>
 							</td>
 					</tr>
 				</table>

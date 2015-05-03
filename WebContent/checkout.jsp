@@ -30,11 +30,11 @@
 					</tr>
 					
 					<tr>
-						<td><label>Date & Time</label></td>
-						<td><input type="date" id="deliveryDate" name="deliveryDate" required style="width: 40%;"
+						<td style="width: 50%;"><label>Date & Time</label></td>
+						<td><input type="date" id="deliveryDate" name="deliveryDate" required 
 								 onBlur="checkDate()" onFocus="clearTime()"/><br/><br/>
 						<input type="time" id="deliveryTime" name="deliveryTime" required onChange="validateTime()"
-								 style="width: 30%;"/></td>
+								 /></td>
 					</tr>
 					
 					<tr>
@@ -142,7 +142,7 @@
 					</tr>
 					<tr>
 						<td><label for="expiryDate">Expiry date</label></td>
-						<td><input type="date" id="expiryDate" name="expiryDate"
+						<td><input type="date" id="expiryDate" name="expiryDate" onBlur="checkExpiry()"
 							required /><br></td>
 					</tr>
 

@@ -654,11 +654,11 @@ table tr td{
 	margin: 20px;
 }
 
-input[type="password"],input[type="text"],input[type="email"],input[type=date],input[type=datetime-local]{
+input[type="password"],input[type="text"],input[type="email"],input[type=date],input[type="time"]{
 	width: 250px;
 	height: 25px;
 }
 
-input[type="text"],input[type=date],input[type=datetime-local]{
+input[type="text"],input[type=date],input[type="time"]{
 	padding-left: 10px;
 }

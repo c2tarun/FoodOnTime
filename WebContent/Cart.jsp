@@ -80,7 +80,7 @@ table, th, td {
 										<input type="hidden" name="delete" value="true" /> <input
 											type="hidden" name="delPid"
 											value="${products.product.productCode}" /> <input
-											id="deleteCartProduct" type="submit" value="Delete"
+											id="deleteCartProduct" type="submit" value="Delete" class="button"
 											style="margin-top: 20px;" />
 									</form></td>
 							</tr>
@@ -97,12 +97,12 @@ table, th, td {
 				<c:choose>
 					<c:when test="${sessionScope.currentUser!= null}">
 						<a href="checkout.jsp" class="button"
-							style="margin-top: 20px; float: right;">Checkout</a>
+							style="margin-top: 20px; float: right;color:black;">Checkout</a>
 					</c:when>
 					<c:otherwise>
 						<c:set var="userLog" scope="session" value="true" />
 						<a href="loginSelection.jsp" class="button"
-							style="margin-top: 20px; float: right;">Checkout</a>
+							style="margin-top: 20px; float: right;color:black;">Checkout</a>
 					</c:otherwise>
 				</c:choose>
 

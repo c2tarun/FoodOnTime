@@ -17,3 +17,9 @@ function updateQuantityFunction(count){
 	document.getElementById("form"+count).submit();
 }
 
+function submitCancelForm(count){
+	if(confirm("Are You Sure to cancel this order???"))
+		document.getElementById("cancel_form"+count).submit();
+		//alert(count);
+}
+

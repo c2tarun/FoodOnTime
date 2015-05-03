@@ -29,9 +29,9 @@
 	    <c:forEach var="orders" items="${requestScope.orderList}" varStatus="orderCount">
 	    	<tr><td>${orders.orderDate }</td><td>${orders.products }</td>
 	    	<td>${orders.deliveryDate }</td><td>${orders.totalCost }</td><td>
-	    		<form action="OrderController?action=CancelOrder" method="post">
+	    		<form action="OrderController?action=CancelOrder" method="post" id="cancel_form${orderCount.count }">
 	    			<input type = "hidden" value="${orders.orderId }" name="orderId" />
-	    			<input type="submit" value="Cancel" />
+	    			<input type="button" value="Cancel" onClick="submitCancelForm(${orderCount.count})" />
 	    		</form>
 	    	</td></tr>
 	    </c:forEach>

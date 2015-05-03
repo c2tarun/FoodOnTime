@@ -25,6 +25,10 @@ function validateDate(){
 		
 		$("#deliveryDate").prop("max",d.getFullYear()+"-"+max_month+"-"+max_day);	
 		
+		var expiry_day = "01";
+		var expiry_month = ((d.getMonth()+1)>=5)?"01":"06";
+		var expiry_year = ((d.getMonth()+1)>=5)?d.getFullYear()+1:d.getFullYear();
+		$("#expiryDate").prop("min",expiry_year+"-"+expiry_month+"-"+expiry_day);
 }
 
 function checkDate(){
@@ -35,6 +39,16 @@ function checkDate(){
 	
 	if($("#deliveryDate").val()>d.getFullYear()+"-"+month+"-"+day)
 		$("#deliveryDate").val("");
+}
+
+function checkExpiry(){
+	
+	var expiry_day = "01";
+	var expiry_month = ((d.getMonth()+1)>=5)?"01":"06";
+	var expiry_year = ((d.getMonth()+1)>=5)?d.getFullYear()+1:d.getFullYear();
+	
+	if($("#expiryDate").val()<expiry_year+"-"+expiry_month+"-"+expiry_day)
+		$("#expiryDate").val("");
 }
 
 function validateTime(){

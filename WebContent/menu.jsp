@@ -29,7 +29,7 @@
 			<c:set var="stat" scope="session" value="admin" />
 			<c:if test="${currentUser.status eq stat}">
 				<a href="Addadmin.jsp" class="button"
-					style="margin-top: 20px; float: right;">Add Product</a>
+					style="margin-top: 20px; float: right;color:black;">Add Product</a>
 
 			</c:if>
 
@@ -40,7 +40,7 @@
 					<option>Bakery</option>
 					<option>Breakfast</option>
 				</select> <a href="ProductsController"><button id="submitCategory"
-						onclick="clearList()" value="select">Submit</button></a>
+						onclick="clearList()" value="select" class="button">Submit</button></a>
 
 			</form>
 			<br />
