@@ -74,7 +74,7 @@
 					<!-- <input type="submit" value="SUBMIT" onclick="return confirm('Are you sure?')" onclick="javascript:validate_textbox1(this.form); /> -->
 					<tr>
 						<td colspan="2" style="text-align: center;"><input type="submit" value="SUBMIT" class="button"/> <a href="loginSelection.jsp" class="button"
-							style="margin-top: 5px; ">Cancel</a>
+							style="margin-top: 5px; color:black;">Cancel</a>
 							</td>
 					</tr>
 				</table>
