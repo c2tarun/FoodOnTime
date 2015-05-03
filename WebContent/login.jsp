@@ -38,7 +38,7 @@
 <input type="password" name="password">
 <br>
 <br>
-<button value="select">Submit</button>
+<button value="select" class="button">Submit</button>
 </center>
 </form>
 </div>
